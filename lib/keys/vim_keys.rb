@@ -20,13 +20,13 @@ class Keys::VimKeys
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       key = {}
 
-      file = arr[1].to_s[%r{Last set from (\S+)}, 1]
-      plugin = file.to_s[%r{#{plugins_dir}/([^/]+)\S+}, 1]
+      key[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1]
+      key[:plugin] = key[:file].to_s[%r{#{plugins_dir}/([^/]+)\S+}, 1]
       next if file.nil?
-      key[:plugin] = plugin if plugin
-      key[:file]   = file if file
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
+      next if key[:key][/^<Plug>/]
+
       key[:action] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
       key[:mode] = arr[0][/^[nvosx]+/] || 'nvosx'
       key
