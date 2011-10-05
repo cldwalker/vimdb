@@ -70,7 +70,7 @@ class Keys::VimKeys
       next if key[:key][/^<Plug>/]
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
-      key[:mode] = arr[0][/^[nvosx]+/] || 'nvosx'
+      key[:mode] = arr[0][/^[nvosxi]+/] || 'nvso'
       key
     end.compact
   end
