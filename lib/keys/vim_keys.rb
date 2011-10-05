@@ -39,7 +39,8 @@ class Keys::VimKeys
       section_lines.each do |e|
         cols = e.split(/\t+/)
         if cols.size >= 3
-          keys << {mode: mode, key: cols[-2].gsub('CTRL-', 'C-'), desc: cols[-1] }
+          key = cols[-2].gsub('CTRL-', 'C-')
+          keys << {mode: mode, key: key, desc: cols[-1].strip }
         # add desc from following lines
         elsif cols.size == 2 && cols[0] == ''
           keys[-1][:desc] += ' ' + cols[1].strip
