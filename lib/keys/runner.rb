@@ -1,3 +1,5 @@
+require 'hirb'
+
 class Keys::Runner < Thor
   method_option :plugins_dir, :type => :string, :desc => "directory for vim plugins"
   method_option :field, :default => 'key', :desc => 'field to query', :aliases => '-f'
@@ -13,8 +15,7 @@ class Keys::Runner < Thor
     keys.sort_by! {|e| e[sort.to_sym] || '' }
     keys.reverse! if options[:reverse_sort]
 
-    require 'hirb'
     puts Hirb::Helpers::Table.render(keys,
-     :fields => [:key, :mode, :plugin, :action])
+     :fields => [:key, :mode, :plugin, :desc])
   end
 end
