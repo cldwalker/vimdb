@@ -44,6 +44,8 @@ class Keys::VimKeys
         # add desc from following lines
         elsif cols.size == 2 && cols[0] == ''
           keys[-1][:desc] += ' ' + cols[1].strip
+        # else
+        # TODO: parse few edge cases
         end
       end
     end
