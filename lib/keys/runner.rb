@@ -12,7 +12,7 @@ class Keys::Runner < Thor
     Keys::VimKeys.plugins_dir = options[:plugins_dir] if options[:plugins_dir]
     keys = Keys::DB.keys(options[:reload])
     if query
-      regex = options[:ignore_case] ? /#{query}/i : /#{query}/
+      regex = Regexp.new(Regexp.escape(query), options[:ignore_case])
       keys.select! {|e| e[options[:field].to_sym] =~ regex }
     end
     sort = options[:sort] || options[:field]
