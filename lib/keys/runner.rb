@@ -28,6 +28,6 @@ class Keys::Runner < Thor
     keys.reverse! if options[:reverse_sort]
 
     puts Hirb::Helpers::Table.render(keys,
-     fields: [:key, :mode, :plugin, :desc], headers: {:desc => 'desc/action'})
+     fields: [:key, :mode, :from, :desc], headers: {:desc => 'desc/action'})
   end
 end

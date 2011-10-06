@@ -40,7 +40,7 @@ class Keys::VimKeys
         cols = e.split(/\t+/)
         if cols.size >= 3
           key = cols[-2].gsub('CTRL-', 'C-')
-          keys << {mode: mode, key: key, desc: cols[-1].strip }
+          keys << {mode: mode, key: key, desc: cols[-1].strip, :from => 'default'}
         # add desc from following lines
         elsif cols.size == 2 && cols[0] == ''
           keys[-1][:desc] += ' ' + cols[1].strip
@@ -63,9 +63,9 @@ class Keys::VimKeys
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       key = {}
 
-      key[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1]
-      key[:plugin] = key[:file].to_s[%r{#{plugins_dir}/([^/]+)\S+}, 1]
-      next if file.nil?
+      key[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1] or next
+      key[:from] = key[:file].to_s[%r{/#{plugins_dir}/([^/]+)\S+}, 1] || 'user'
+      key[:from] += ' plugin' if key[:from] != 'user'
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
       next if key[:key][/^<Plug>/]
