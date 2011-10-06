@@ -21,10 +21,10 @@ class Keys::VimKeys
   def self.parse_index_file(file)
     lines = File.read(file).split("\n")
     sections = lines.slice_before(/^={10,}/).to_a
-    header_modes = {
-      '1. Insert mode' => 'i', '2.' => 'n',
-      '3. Visual mode' => 'v', '4. Command-line editing' => 'c'
-    }
+    header_modes = [
+      ['1. Insert mode', 'i'], ['2.1', 'ovs'], ['2.', 'n'],
+      ['3. Visual mode', 'vs'], ['4. Command-line editing', 'c']
+    ]
 
     keys = []
     # skip intro and last Ex section
@@ -58,6 +58,7 @@ class Keys::VimKeys
   end
 
   def self.parse_map_file(file)
+    mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
     lines = File.read(file).strip.split("\n")
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       key = {}
@@ -70,7 +71,8 @@ class Keys::VimKeys
       next if key[:key][/^<Plug>/]
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
-      key[:mode] = arr[0][/^[nvosxi]+/] || 'nvso'
+      key[:mode] = (mode = arr[0][/^[nvsxo!ilc]+/]) ?
+        mode_map[mode] || mode : 'nvso'
       key
     end.compact
   end
