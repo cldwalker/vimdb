@@ -71,7 +71,7 @@ class Keys::VimKeys
       key[:from] += ' plugin' if key[:from] != 'user'
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
-      next if key[:key][/^<Plug>/]
+      next if key[:key][/^(<Plug>|<SNR>)/]
       key[:key] = translate_key(key[:key])
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
