@@ -1,8 +1,10 @@
 require 'tempfile'
 
 class Keys::VimKeys
-  class << self;  attr_accessor :plugins_dir; end
+  class << self;  attr_accessor :plugins_dir, :key_map, :mode_map end
   self.plugins_dir = 'plugins'
+  self.key_map = {'Esc' => 'E', 'Space' => 'L' }
+  self.mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
 
   def self.create
     index_file = generate_index_file
@@ -60,7 +62,6 @@ class Keys::VimKeys
   end
 
   def self.parse_map_file(file)
-    mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
     lines = File.read(file).strip.split("\n")
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       key = {}
@@ -71,11 +72,24 @@ class Keys::VimKeys
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
       next if key[:key][/^<Plug>/]
+      key[:key] = translate_key(key[:key])
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
       key[:mode] = (mode = arr[0][/^[nvsxo!ilc]+/]) ?
         mode_map[mode] || mode : 'nvso'
       key
     end.compact
+  end
+
+  def self.translate_key(key)
+    if match = /^<(?<modifier>Esc|Space)>(?<first>\S)(?<rest>.*$)/.match(key)
+      rest = match[:rest].empty? ? '' : ' ' + match[:rest]
+      "#{key_map[match[:modifier]]}-#{match[:first]}" + rest
+    elsif match = /^<(?<ctrl>C-[^>])>(?<rest>.*$)/.match(key)
+      rest = match[:rest].empty? ? '' : ' ' + match[:rest].gsub(/<(C-[^>]+)>/, '\1')
+      match[:ctrl] + rest
+    else
+      key
+    end
   end
 end
