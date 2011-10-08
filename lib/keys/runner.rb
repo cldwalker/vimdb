@@ -5,8 +5,9 @@ class Keys::Runner < Thor
   method_option :field, :default => 'key', :desc => 'field to query', :aliases => '-f'
   method_option :reload, :type => :boolean, :desc => 'reloads keys'
   method_option :sort, :type => :string, :desc => 'sort by field', :aliases => '-s'
-  method_option :reverse_sort, :type => :boolean, :aliases => '-r'
+  method_option :reverse_sort, :type => :boolean, :aliases => '-R'
   method_option :ignore_case, :type => :boolean, :aliases => '-i'
+  method_option :regexp, :type => :boolean, :aliases => '-r', :desc => 'query is a regexp'
   method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
   desc 'list [QUERY]', 'List keys'
   def list(query=nil)
@@ -14,7 +15,8 @@ class Keys::Runner < Thor
     keys = Keys::DB.keys(options[:reload])
 
     if query
-      regex = Regexp.new(Regexp.escape(query), options[:ignore_case])
+      query = Regexp.escape(query) unless options[:regexp]
+      regex = Regexp.new(query, options[:ignore_case])
       keys.select! {|e| e[options[:field].to_sym] =~ regex }
     end
     if options[:mode]
