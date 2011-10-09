@@ -1,32 +1,36 @@
 require 'tempfile'
 
 class Keys::VimKeys
-  class << self;  attr_accessor :plugins_dir, :modifiers, :mode_map, :leader end
+  class << self
+    attr_accessor :plugins_dir, :modifiers, :mode_map, :leader, :vim_cmd
+  end
   self.plugins_dir = 'plugins'
   self.modifiers = {'<Esc>' => 'E'}
   self.mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
+  self.vim_cmd = 'vim'
 
   def self.create
-    index_file = generate_index_file
-    keys = parse_index_file index_file
+    keys = parse_index_file create_index_file
     self.leader ||= get_leader
     self.modifiers[self.leader] ||= 'L'
-    map_file = generate_map_file
-    keys + parse_map_file(map_file)
+    keys + parse_map_file(create_map_file)
+  end
+
+  def self.vim(*cmds)
+    system %[#{vim_cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
   end
 
   def self.get_leader
     file = Tempfile.new('vim-leader').path
-    system %[vim -c 'colorscheme default | redir! > #{file} | ] +
-      %[silent! echo exists("mapleader") ? mapleader : "" | redir END | quit']
+    leader_cmd = %[silent! echo exists("mapleader") ? mapleader : ""]
+    vim "redir! > #{file}", leader_cmd, 'redir END'
     leader = File.readlines(file).last.chomp
     {' ' => '<Space>', '' => '\\'}[leader] || leader
   end
 
-  def self.generate_index_file
+  def self.create_index_file
     file = Tempfile.new('vim-index').path
-    system %[ vim -c 'colorscheme default | silent help index.txt | ] +
-      %[silent! w! #{file} | qa']
+    vim 'silent help index.txt', "silent! w! #{file}"
     file
   end
 
@@ -64,10 +68,9 @@ class Keys::VimKeys
     keys
   end
 
-  def self.generate_map_file
+  def self.create_map_file
     file = Tempfile.new('vim-map').path
-    system %[ vim -c 'colorscheme default | redir! > #{file} | ] +
-      "silent! verbose map | redir END | quit'"
+    vim "redir! > #{file}", "silent! verbose map", 'redir END'
     file
   end
 
