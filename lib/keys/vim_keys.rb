@@ -1,22 +1,32 @@
 require 'tempfile'
 
 class Keys::VimKeys
-  class << self;  attr_accessor :plugins_dir, :key_map, :mode_map end
+  class << self;  attr_accessor :plugins_dir, :modifiers, :mode_map, :leader end
   self.plugins_dir = 'plugins'
-  self.key_map = {'Esc' => 'E', 'Space' => 'L' }
+  self.modifiers = {'<Esc>' => 'E'}
   self.mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
 
   def self.create
     index_file = generate_index_file
     keys = parse_index_file index_file
+    self.leader ||= get_leader
+    self.modifiers[self.leader] ||= 'L'
     map_file = generate_map_file
     keys + parse_map_file(map_file)
   end
 
+  def self.get_leader
+    file = Tempfile.new('vim-leader').path
+    system %[vim -c 'colorscheme default | redir! > #{file} | ] +
+      %[silent! echo exists("mapleader") ? mapleader : "" | redir END | quit']
+    leader = File.readlines(file).last.chomp
+    {' ' => '<Space>', '' => '\\'}[leader] || leader
+  end
+
   def self.generate_index_file
     file = Tempfile.new('vim-index').path
-    system %[ vim -c 'colorscheme default | help index.txt | ] +
-      %[silent w! #{file} | qa']
+    system %[ vim -c 'colorscheme default | silent help index.txt | ] +
+      %[silent! w! #{file} | qa']
     file
   end
 
@@ -82,9 +92,9 @@ class Keys::VimKeys
   end
 
   def self.translate_key(key)
-    if match = /^<(?<modifier>Esc|Space)>(?<first>\S)(?<rest>.*$)/.match(key)
+    if match = /^(?<modifier>#{Regexp.union(*modifiers.keys)})(?<first>\S)(?<rest>.*$)/.match(key)
       rest = match[:rest].empty? ? '' : ' ' + match[:rest]
-      "#{key_map[match[:modifier]]}-#{match[:first]}" + rest
+      "#{modifiers[match[:modifier]]}-#{match[:first]}" + rest
     elsif match = /^<(?<ctrl>C-[^>])>(?<rest>.*$)/.match(key)
       rest = match[:rest].empty? ? '' : ' ' + match[:rest].gsub(/<(C-[^>]+)>/, '\1')
       match[:ctrl] + rest

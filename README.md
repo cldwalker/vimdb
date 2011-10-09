@@ -14,11 +14,11 @@ Usage
     # List keys with Ctrl-A combo
     $ keys list C-A
 
-    # List keys with Alt key
-    $ keys list Esc
+    # List keys with Esc key
+    $ keys list E-
 
     # List keys with Leader
-    $ keys list Space
+    $ keys list L-
 
     # List insert mode keys
     $ keys list -m=i
