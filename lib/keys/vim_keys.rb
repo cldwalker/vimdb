@@ -55,7 +55,7 @@ class Keys::VimKeys
       section_lines.each do |e|
         cols = e.split(/\t+/)
         if cols.size >= 3
-          key = cols[-2].gsub('CTRL-', 'C-')
+          key = translate_index_key cols[-2]
           keys << {mode: mode, key: key, desc: cols[-1].strip, :from => 'default'}
         # add desc from following lines
         elsif cols.size == 2 && cols[0] == ''
@@ -66,6 +66,10 @@ class Keys::VimKeys
       end
     end
     keys
+  end
+
+  def self.translate_index_key(key)
+    key.gsub('CTRL-', 'C-').gsub(/-([A-Z])( |$)/) {|e| e.tr('A-Z', 'a-z') }
   end
 
   def self.create_map_file
@@ -85,7 +89,7 @@ class Keys::VimKeys
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
       next if key[:key][/^(<Plug>|<SNR>)/]
-      key[:key] = translate_key(key[:key])
+      key[:key] = translate_map_key(key[:key])
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
       key[:mode] = (mode = arr[0][/^[nvsxo!ilc]+/]) ?
@@ -94,7 +98,7 @@ class Keys::VimKeys
     end.compact
   end
 
-  def self.translate_key(key)
+  def self.translate_map_key(key)
     if match = /^(?<modifier>#{Regexp.union(*modifiers.keys)})(?<first>\S)(?<rest>.*$)/.match(key)
       rest = match[:rest].empty? ? '' : ' ' + match[:rest]
       "#{modifiers[match[:modifier]]}-#{match[:first]}" + rest
