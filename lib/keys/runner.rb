@@ -1,7 +1,17 @@
 require 'hirb'
 
 class Keys::Runner < Thor
-  method_option :plugins_dir, :type => :string, :desc => "directory for vim plugins"
+  def self.start(*args)
+    rc = ENV['KEYSRC'] || '~/.keysrc'
+    begin
+      load(rc) if File.exists?(File.expand_path(rc))
+    rescue StandardError, SyntaxError, LoadError => err
+      warn "Error while loading #{rc}:\n"+
+        "#{err.class}: #{err.message}\n    #{err.backtrace.join("\n    ")}"
+    end
+    super
+  end
+
   method_option :field, :default => 'key', :desc => 'field to query', :aliases => '-f'
   method_option :reload, :type => :boolean, :desc => 'reloads keys'
   method_option :sort, :type => :string, :desc => 'sort by field', :aliases => '-s'
@@ -11,7 +21,6 @@ class Keys::Runner < Thor
   method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
   desc 'list [QUERY]', 'List keys'
   def list(query=nil)
-    Keys::VimKeys.plugins_dir = options[:plugins_dir] if options[:plugins_dir]
     keys = Keys::DB.keys(options[:reload])
 
     if query
