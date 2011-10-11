@@ -69,7 +69,7 @@ class Keys::VimKeys
   end
 
   def self.translate_index_key(key)
-    key.gsub('CTRL-', 'C-').gsub(/-([A-Z])( |$)/) {|e| e.tr('A-Z', 'a-z') }
+    key.gsub(/CTRL-([A-Z])/) {|s| "C-#{$1.downcase}" }
   end
 
   def self.create_map_file
@@ -103,8 +103,9 @@ class Keys::VimKeys
       rest = match[:rest].empty? ? '' : ' ' + match[:rest]
       "#{modifiers[match[:modifier]]}-#{match[:first]}" + rest
     elsif match = /^<(?<ctrl>C-[^>])>(?<rest>.*$)/.match(key)
-      rest = match[:rest].empty? ? '' : ' ' + match[:rest].gsub(/<(C-[^>]+)>/, '\1')
-      match[:ctrl] + rest
+      rest = match[:rest].empty? ? '' :
+        ' ' + match[:rest].gsub(/<(C-[^>])>/, '\1')
+      (match[:ctrl] + rest).gsub(/C-([A-Z])/) {|s| "C-#{$1.downcase}" }
     else
       key
     end
