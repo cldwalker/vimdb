@@ -1,13 +1,13 @@
 require 'tempfile'
 
-class Keys::VimKeys
+class Keys::Vim
   class << self
-    attr_accessor :plugins_dir, :modifiers, :mode_map, :leader, :vim_cmd
+    attr_accessor :plugins_dir, :modifiers, :mode_map, :leader, :cmd
   end
   self.plugins_dir = 'plugins'
   self.modifiers = {'<Esc>' => 'E'}
   self.mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
-  self.vim_cmd = 'vim'
+  self.cmd = 'vim'
 
   def self.create
     keys = parse_index_file create_index_file
@@ -17,7 +17,7 @@ class Keys::VimKeys
   end
 
   def self.vim(*cmds)
-    system %[#{vim_cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
+    system %[#{cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
   end
 
   def self.get_leader

@@ -17,7 +17,7 @@ module Keys
     def self.create_keys
       db = PStore.new(db_file)
       db.transaction do
-        db[:vim] = VimKeys.create
+        db[:vim] = Vim.create
       end
     end
   end
