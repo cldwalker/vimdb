@@ -1,12 +1,18 @@
 module Keys
   class App
     def self.inherited(mod)
-      @descendants ||= [] << mod
+      (@descendants ||= []) << mod
+    end
+
+    def self.load_app(name)
+      require "keys/#{name}"
+    rescue LoadError
     end
 
     def self.instance(name)
+      load_app(name)
       app = @descendants.find {|e| e.app_name == name } or
-        raise "App '#{name}' not found"
+        abort "App '#{name}' not found"
       app.new
     end
 
