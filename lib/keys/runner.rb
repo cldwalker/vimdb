@@ -21,7 +21,8 @@ class Keys::Runner < Thor
   method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
   desc 'list [QUERY]', 'List keys'
   def list(query=nil)
-    keys = Keys::DB.keys(options[:reload])
+    Keys.user.reload if options[:reload]
+    keys = Keys.user.keys
 
     if query
       query = Regexp.escape(query) unless options[:regexp]

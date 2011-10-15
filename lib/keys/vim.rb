@@ -1,26 +1,33 @@
 require 'tempfile'
 
-class Keys::Vim
-  class << self
-    attr_accessor :plugins_dir, :modifiers, :mode_map, :leader, :cmd
-  end
-  self.plugins_dir = 'plugins'
-  self.modifiers = {'<Esc>' => 'E'}
-  self.mode_map = {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'}
-  self.cmd = 'vim'
+class Keys::Vim < Keys::App
+  class << self; attr_accessor :config end
+  self.config = {
+    plugins_dir: 'plugins',
+    modifiers: {'<Esc>' => 'E'},
+    mode_map: {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'},
+    cmd: 'vim'
+  }
 
-  def self.create
+  def initialize
+    @plugins_dir, @cmd = self.class.config.values_at(:plugins_dir, :cmd)
+    @modifiers, @mode_map = self.class.config.values_at(:modifiers, :mode_map)
+  end
+
+  def create
     keys = parse_index_file create_index_file
-    self.leader ||= get_leader
-    self.modifiers[self.leader] ||= 'L'
+    @leader ||= get_leader
+    @modifiers[@leader] ||= 'L'
     keys + parse_map_file(create_map_file)
   end
 
-  def self.vim(*cmds)
-    system %[#{cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
+  private
+
+  def vim(*cmds)
+    system %[#{@cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
   end
 
-  def self.get_leader
+  def get_leader
     file = Tempfile.new('vim-leader').path
     leader_cmd = %[silent! echo exists("mapleader") ? mapleader : ""]
     vim "redir! > #{file}", leader_cmd, 'redir END'
@@ -28,13 +35,13 @@ class Keys::Vim
     {' ' => '<Space>', '' => '\\'}[leader] || leader
   end
 
-  def self.create_index_file
+  def create_index_file
     file = Tempfile.new('vim-index').path
     vim 'silent help index.txt', "silent! w! #{file}"
     file
   end
 
-  def self.parse_index_file(file)
+  def parse_index_file(file)
     lines = File.read(file).split("\n")
     sections = lines.slice_before(/^={10,}/).to_a
     header_modes = [
@@ -68,23 +75,23 @@ class Keys::Vim
     keys
   end
 
-  def self.translate_index_key(key)
+  def translate_index_key(key)
     key.gsub(/CTRL-([A-Z])/) {|s| "C-#{$1.downcase}" }
   end
 
-  def self.create_map_file
+  def create_map_file
     file = Tempfile.new('vim-map').path
     vim "redir! > #{file}", "silent! verbose map", 'redir END'
     file
   end
 
-  def self.parse_map_file(file)
+  def parse_map_file(file)
     lines = File.read(file).strip.split("\n")
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       key = {}
 
       key[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1] or next
-      key[:from] = key[:file].to_s[%r{/#{plugins_dir}/([^/]+)\S+}, 1] || 'user'
+      key[:from] = key[:file].to_s[%r{/#{@plugins_dir}/([^/]+)\S+}, 1] || 'user'
       key[:from] += ' plugin' if key[:from] != 'user'
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
@@ -93,15 +100,15 @@ class Keys::Vim
 
       key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
       key[:mode] = (mode = arr[0][/^[nvsxo!ilc]+/]) ?
-        mode_map[mode] || mode : 'nvso'
+        @mode_map[mode] || mode : 'nvso'
       key
     end.compact
   end
 
-  def self.translate_map_key(key)
-    if match = /^(?<modifier>#{Regexp.union(*modifiers.keys)})(?<first>\S)(?<rest>.*$)/.match(key)
+  def translate_map_key(key)
+    if match = /^(?<modifier>#{Regexp.union(*@modifiers.keys)})(?<first>\S)(?<rest>.*$)/.match(key)
       rest = match[:rest].empty? ? '' : ' ' + match[:rest]
-      "#{modifiers[match[:modifier]]}-#{match[:first]}" + rest
+      "#{@modifiers[match[:modifier]]}-#{match[:first]}" + rest
     elsif match = /^<(?<ctrl>C-[^>])>(?<rest>.*$)/.match(key)
       rest = match[:rest].empty? ? '' :
         ' ' + match[:rest].gsub(/<(C-[^>])>/, '\1')
