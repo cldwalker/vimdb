@@ -8,7 +8,7 @@ module Keys
   autoload :Vim,    'keys/vim'
 
   class << self; attr_accessor :default_app; end
-  self.default_app = 'vim'
+  self.default_app = ENV['KEYS_APP'] || 'vim'
 
   def self.user(app_name = nil, db = DB.new)
     @user ||= User.new(app(app_name), db)

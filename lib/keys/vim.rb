@@ -25,6 +25,10 @@ class Keys::Vim < Keys::App
     "Works with vim >= 7.2 on Mac 10.6"
   end
 
+  def display_fields
+    [:key, :mode, :from, :desc]
+  end
+
   private
 
   def vim(*cmds)

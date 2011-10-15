@@ -20,6 +20,10 @@ module Keys
       name[/\w+$/].downcase
     end
 
+    def display_fields
+      [:key, :from, :desc]
+    end
+
     # key used to store app in DB
     def key
       self.class.app_name.to_sym

@@ -18,10 +18,12 @@ class Keys::Runner < Thor
   method_option :reverse_sort, :type => :boolean, :aliases => '-R'
   method_option :ignore_case, :type => :boolean, :aliases => '-i'
   method_option :regexp, :type => :boolean, :aliases => '-r', :desc => 'query is a regexp'
-  method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
-  desc 'list [QUERY]', 'List keys'
+  method_option :app, :type => :string, :aliases=>'-a', :desc => 'app to search'
+  method_option :mode, :type => :string, :desc => 'vim only: search by mode, multiple modes are ORed', :aliases => '-m'
+  desc 'list [QUERY]', 'List keys of an app'
   def list(query=nil)
     Keys.user.reload if options[:reload]
+    Keys.app(options[:app]) if options[:app]
     keys = Keys.user.keys
 
     if query
@@ -39,8 +41,7 @@ class Keys::Runner < Thor
     keys.sort_by! {|e| e[sort.to_sym] || '' }
     keys.reverse! if options[:reverse_sort]
 
-    puts Hirb::Helpers::Table.render(keys,
-     fields: [:key, :mode, :from, :desc], headers: {:desc => 'desc/action'})
+    puts Hirb::Helpers::Table.render(keys, fields: Keys.app.display_fields)
   end
 
   desc 'info', 'Prints info about app'
