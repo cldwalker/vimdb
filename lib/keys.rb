@@ -10,7 +10,11 @@ module Keys
   class << self; attr_accessor :default_app; end
   self.default_app = 'vim'
 
-  def self.user(app = nil, db = DB.new)
-    @user ||= User.new(App.instance(app || default_app), db)
+  def self.user(app_name = nil, db = DB.new)
+    @user ||= User.new(app(app_name), db)
+  end
+
+  def self.app(name = nil)
+    @app ||= App.instance(name || default_app)
   end
 end

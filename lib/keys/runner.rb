@@ -42,4 +42,9 @@ class Keys::Runner < Thor
     puts Hirb::Helpers::Table.render(keys,
      fields: [:key, :mode, :from, :desc], headers: {:desc => 'desc/action'})
   end
+
+  desc 'info', 'Prints info about app'
+  def info
+    puts Keys.app.info
+  end
 end

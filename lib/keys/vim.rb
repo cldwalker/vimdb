@@ -21,6 +21,10 @@ class Keys::Vim < Keys::App
     keys + parse_map_file(create_map_file)
   end
 
+  def info
+    "Works with vim >= 7.2 and tested on Mac 10.6"
+  end
+
   private
 
   def vim(*cmds)
