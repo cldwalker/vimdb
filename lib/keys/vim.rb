@@ -21,6 +21,16 @@ class Keys::Vim < Keys::App
     keys + parse_map_file(create_map_file)
   end
 
+  def search(keys, query, options = {})
+    keys = super
+    if options[:mode]
+      keys.select! do |key|
+        options[:mode].split('').any? {|m| key[:mode].include?(m) }
+      end
+    end
+    keys
+  end
+
   def info
     "Works with vim >= 7.2 on Mac 10.6"
   end

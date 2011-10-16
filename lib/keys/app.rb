@@ -20,6 +20,15 @@ module Keys
       name[/\w+$/].downcase
     end
 
+    def search(keys, query, options = {})
+      if query
+        query = Regexp.escape(query) unless options[:regexp]
+        regex = Regexp.new(query, options[:ignore_case])
+        keys.select! {|e| e[options[:field].to_sym] =~ regex }
+      end
+      keys
+    end
+
     def display_fields
       [:key, :from, :desc]
     end

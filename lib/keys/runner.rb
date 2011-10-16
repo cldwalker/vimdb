@@ -24,23 +24,7 @@ class Keys::Runner < Thor
   def list(query=nil)
     Keys.user.reload if options[:reload]
     Keys.app(options[:app]) if options[:app]
-    keys = Keys.user.keys
-
-    if query
-      query = Regexp.escape(query) unless options[:regexp]
-      regex = Regexp.new(query, options[:ignore_case])
-      keys.select! {|e| e[options[:field].to_sym] =~ regex }
-    end
-    if options[:mode]
-      keys.select! do |key|
-        options[:mode].split('').any? {|m| key[:mode].include?(m) }
-      end
-    end
-
-    sort = options[:sort] || options[:field]
-    keys.sort_by! {|e| e[sort.to_sym] || '' }
-    keys.reverse! if options[:reverse_sort]
-
+    keys = Keys.user.search(query, options)
     puts Hirb::Helpers::Table.render(keys, fields: Keys.app.display_fields)
   end
 
