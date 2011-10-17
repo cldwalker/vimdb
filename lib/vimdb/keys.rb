@@ -1,6 +1,6 @@
 require 'tempfile'
 
-class Keys::Vim < Keys::App
+class Vimdb::Keys < Vimdb::Item
   class << self; attr_accessor :config end
   self.config = {
     plugins_dir: 'plugins',

@@ -1,41 +1,41 @@
-module Keys
-  class App
+module Vimdb
+  class Item
     def self.inherited(mod)
       (@descendants ||= []) << mod
     end
 
-    def self.load_app(name)
-      require "keys/#{name}"
+    def self.load_item(name)
+      require "vimdb/#{name}"
     rescue LoadError
     end
 
     def self.instance(name)
-      load_app(name)
-      app = @descendants.find {|e| e.app_name == name } or
-        abort "App '#{name}' not found"
-      app.new
+      load_item(name)
+      item = @descendants.find {|e| e.item_name == name } or
+        abort "Item '#{name}' not found"
+      item.new
     end
 
-    def self.app_name
+    def self.item_name
       name[/\w+$/].downcase
     end
 
-    def search(keys, query, options = {})
+    def search(items, query, options = {})
       if query
         query = Regexp.escape(query) unless options[:regexp]
         regex = Regexp.new(query, options[:ignore_case])
-        keys.select! {|e| e[options[:field].to_sym] =~ regex }
+        items.select! {|e| e[options[:field].to_sym] =~ regex }
       end
-      keys
+      items
     end
 
     def display_fields
       [:key, :from, :desc]
     end
 
-    # key used to store app in DB
+    # key used to store item in DB
     def key
-      self.class.app_name.to_sym
+      self.class.item_name
     end
 
     def create

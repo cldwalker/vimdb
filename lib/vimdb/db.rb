@@ -1,9 +1,9 @@
 require 'pstore'
 
-module Keys
+module Vimdb
   class DB
     attr_accessor :file
-    def initialize(file = Dir.home + '/.keys.pstore')
+    def initialize(file = Dir.home + '/.vimdb.pstore')
       @file = file
       @db = PStore.new(@file)
     end
