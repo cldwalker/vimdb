@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Gabriel Horner"]
   s.email       = "gabriel.horner@gmail.com"
   s.homepage    = "http://github.com/cldwalker/vimdb"
-  s.summary =  "Search vim keys, options and more with great precision"
-  s.description = "Search your vim keybindings precisely by keystroke, mode, description or where they came from. Uses index.txt and :map to populate key database."
+  s.summary =  "vim knowledge tabularized - search vim keys, options and more with great precision."
+  s.description = "Search your vim keybindings precisely by keystroke, mode, description or where they came from. Search vim options by name, alias and description."
   s.required_rubygems_version = ">= 1.3.6"
   s.executables        = %w(vimdb)
   s.add_dependency 'thor', '~> 0.14.6'

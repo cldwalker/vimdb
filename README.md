@@ -1,48 +1,67 @@
 Description
 ===========
 
-Search your vim keybindings precisely by keystroke, mode, description or where they came from.
-Creates a vimdb database, ~/.vimdb.pstore, from index.txt (default keys) and :map (for user + plugin
-keys). Tested with vim >= 7.2 on a mac.
+Improve your knowledge of vim by tabularizing vim items: keybindings, options and more. This allows for
+precise searching of items. Keys can be searched by keystroke, mode, description or where they came
+from.  This gem creates a vimdb database, ~/.vimdb.pstore, from your vim documentation. Tested with
+vim >= 7.2 on a mac.
 
 Usage
 =====
 
     # List keys with Ctrl
-    $ vimdb list C-
+    $ vimdb keys C-
+    +---------------+------+---------------------+------------------------------------------
+    | key           | mode | from                | desc                                    |
+    +---------------+------+---------------------+-----------------------------------------|
+    | 0 C-d         | i    | default             | delete all indent in the current line   |
+    | <C-End>       | i    | default             | cursor past end of fil                  |
+    | <C-End>       | n    | default             | 1  same as "G"                          |
+    | <C-Home>      | i    | default             | cursor to start of file                 |
+    | <C-Home>      | n    | default             | 1  same as "gg"                         |
+    | <C-Left>      | n    | default             | 1  same as "b"                          |
+    ...
 
     # List keys with Ctrl-A combo
-    $ vimdb list C-A
+    $ vimdb keys C-A
 
     # List keys with Esc key
-    $ vimdb list E-
+    $ vimdb keys E-
 
     # List keys with Leader
-    $ vimdb list L-
+    $ vimdb keys L-
 
     # List insert mode keys
-    $ vimdb list -m=i
+    $ vimdb keys -m=i
 
     # List keys I've defined in vimrc
-    $ vimdb list user -f=from
+    $ vimdb keys user -f=from
 
-    # Plugins are assumed to be in ~/.vim/plugins/ directory, change with --plugins-dir
+    # Plugins are assumed to be in ~/.vim/plugins/ directory
+    # Change with Vimdb::Keys.config[:plugins_dir]
     # List keys from my plugins
-    $ vimdb list plugin -f=from
+    $ vimdb keys plugin -f=from
 
     # List keys from snipmate plugin
-    $ vimdb list snipmate -f=from
+    $ vimdb keys snipmate -f=from
 
     # List keys that contain completion in description
-    $ vimdb list completion -f=desc
+    $ vimdb keys completion -f=desc
+
+    # List options that contain window in description
+    $ vimdb opts window -f=desc
+
+    # Info about how vim items were made
+    $ vimdb info keys
+    $ vimdb info options
 
     # For more
-    $ vimdb help list
+    $ vimdb help
 
-Modes
-=====
+Key Modes
+=========
 
-Vim modes are represented as single letters
+Vim's key modes are represented as single letters
 
 * n: normal
 * c: commandline
@@ -60,9 +79,15 @@ The following modes from :map were altered to fit into the above modes:
 * x -> v
 * v -> vs
 
+Motivation
+==========
+
+Wanted to learn faster than :help would let me.
+
 Todo
 ====
 
 * Tests!
 * Add support for more vim items - commands, variables, functions
 * Fix keys - index.txt edge cases
+* Considering user annotation for vim items
