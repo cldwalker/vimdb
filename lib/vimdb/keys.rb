@@ -6,12 +6,11 @@ class Vimdb::Keys < Vimdb::Item
     plugins_dir: 'plugins',
     modifiers: {'<Esc>' => 'E'},
     mode_map: {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'},
-    cmd: 'vim'
   }
 
   def initialize
-    @plugins_dir, @cmd = self.class.config.values_at(:plugins_dir, :cmd)
     @modifiers, @mode_map = self.class.config.values_at(:modifiers, :mode_map)
+    @plugins_dir = self.class.config[:plugins_dir]
   end
 
   def create
@@ -32,7 +31,7 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def info
-    "Works with vim >= 7.2 on Mac 10.6"
+    "Created using index.txt and :map"
   end
 
   def display_fields
@@ -40,10 +39,6 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   private
-
-  def vim(*cmds)
-    system %[#{@cmd} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
-  end
 
   def get_leader
     file = Tempfile.new('vim-leader').path

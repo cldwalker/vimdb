@@ -29,10 +29,6 @@ module Vimdb
       items
     end
 
-    def display_fields
-      [:key, :from, :desc]
-    end
-
     # key used to store item in DB
     def key
       self.class.item_name
@@ -44,6 +40,16 @@ module Vimdb
 
     def info
       raise NotImplementedError
+    end
+
+    def display_fields
+      raise NotImplementedError
+    end
+
+    private
+
+    def vim(*cmds)
+      system %[#{Vimdb.vim} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
     end
   end
 end
