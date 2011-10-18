@@ -37,7 +37,7 @@ Usage
     # List keys I've defined in vimrc
     $ vimdb keys user -f=from
 
-    # Plugins are assumed to be in ~/.vim/plugins/ directory
+    # Plugins are assumed to be in ~/.vim/bundle/ i.e. for pathogen
     # Change with Vimdb::Keys.config[:plugins_dir]
     # List keys from my plugins
     $ vimdb keys plugin -f=from

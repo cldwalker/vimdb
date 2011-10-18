@@ -3,7 +3,7 @@ require 'tempfile'
 class Vimdb::Keys < Vimdb::Item
   class << self; attr_accessor :config end
   self.config = {
-    plugins_dir: 'plugins',
+    plugins_dir: 'bundle',
     modifiers: {'<Esc>' => 'E'},
     mode_map: {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'},
   }
