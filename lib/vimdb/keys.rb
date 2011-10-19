@@ -94,7 +94,8 @@ class Vimdb::Keys < Vimdb::Item
 
   def create_map_file
     file = Tempfile.new('vim-map').path
-    vim "redir! > #{file}", "silent! verbose map", 'redir END'
+    vim "redir! > #{file}", "silent! verbose map", "silent! verbose map!",
+      'redir END'
     file
   end
 
