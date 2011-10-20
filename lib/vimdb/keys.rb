@@ -89,7 +89,7 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def translate_index_key(key)
-    key.gsub(/CTRL-([A-Z])/) {|s| "C-#{$1.downcase}" }
+    key.gsub(/CTRL-(\S)/) {|s| "C-#{$1.downcase}" }
   end
 
   def create_map_file
