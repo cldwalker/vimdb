@@ -1,5 +1,3 @@
-require 'tempfile'
-
 class Vimdb::Keys < Vimdb::Item
   class << self; attr_accessor :config end
   self.config = {
@@ -41,7 +39,7 @@ class Vimdb::Keys < Vimdb::Item
   private
 
   def get_leader
-    file = Tempfile.new('vim-leader').path
+    file = tempfile
     leader_cmd = %[silent! echo exists("mapleader") ? mapleader : ""]
     vim "redir! > #{file}", leader_cmd, 'redir END'
     leader = File.readlines(file).last.chomp
@@ -49,7 +47,7 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def create_index_file
-    file = Tempfile.new('vim-index').path
+    file = tempfile
     vim 'silent help index.txt', "silent! w! #{file}"
     file
   end
@@ -93,7 +91,7 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def create_map_file
-    file = Tempfile.new('vim-map').path
+    file = tempfile
     vim "redir! > #{file}", "silent! verbose map", "silent! verbose map!",
       'redir END'
     file

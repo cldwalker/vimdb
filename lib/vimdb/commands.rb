@@ -59,10 +59,4 @@ class Vimdb::Commands < Vimdb::Item
   def info
     "Created using index.txt and :command"
   end
-
-  private
-
-  def tempfile
-    file = Tempfile.new(Time.now.to_i.to_s).path
-  end
 end

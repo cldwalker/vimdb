@@ -1,3 +1,5 @@
+require 'tempfile'
+
 module Vimdb
   class Item
     def self.inherited(mod)
@@ -50,6 +52,10 @@ module Vimdb
 
     def vim(*cmds)
       system %[#{Vimdb.vim} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
+    end
+
+    def tempfile
+      file = Tempfile.new(Time.now.to_i.to_s).path
     end
   end
 end
