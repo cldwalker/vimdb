@@ -37,6 +37,14 @@ class Vimdb::Runner < Thor
     search_item(query)
   end
 
+  common_options
+  method_option :field, :default => 'name', :desc => 'field to query', :aliases => '-f'
+  desc 'opts [QUERY]', 'List vim commands'
+  def commands(query = nil)
+    Vimdb.item('commands')
+    search_item(query)
+  end
+
   desc 'info', 'Prints info about an item'
   def info(item = nil)
     puts Vimdb.item(item).info
