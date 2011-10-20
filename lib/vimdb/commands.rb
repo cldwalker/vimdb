@@ -1,6 +1,6 @@
 class Vimdb::Commands < Vimdb::Item
   def initialize
-    @plugins_dir = 'plugins'
+    @plugins_dir = Vimdb.plugins_dir
   end
 
   def create

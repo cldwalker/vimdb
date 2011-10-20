@@ -1,14 +1,13 @@
 class Vimdb::Keys < Vimdb::Item
   class << self; attr_accessor :config end
   self.config = {
-    plugins_dir: 'bundle',
     modifiers: {'<Esc>' => 'E'},
     mode_map: {'!' => 'ci', 'v' => 'vs', 'x' => 'v', 'l' => 'ci'},
   }
 
   def initialize
     @modifiers, @mode_map = self.class.config.values_at(:modifiers, :mode_map)
-    @plugins_dir = self.class.config[:plugins_dir]
+    @plugins_dir = Vimdb.plugins_dir
   end
 
   def create
