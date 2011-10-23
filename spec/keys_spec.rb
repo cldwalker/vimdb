@@ -7,7 +7,7 @@ describe "vimdb keys" do
   end
 
   it 'searches :key field by default' do
-    vimdb 'keys', 'L-z'
+    vimdb 'keys', 'g#'
     stdout.must_match /1 row/
   end
 
@@ -18,7 +18,7 @@ describe "vimdb keys" do
 
   it "with --reverse_sort option reverse sorts field" do
     vimdb 'keys', '-R'
-    stdout.must_match /C-a.*'\]/m
+    stdout.must_match /gq.*'\]/m
   end
 
   it "with --regexp option converts search to regexp" do
@@ -38,6 +38,28 @@ describe "vimdb keys" do
   end
 
   describe "edge cases" do
+    it "sets plugin name correctly from map file" do
+      vimdb 'keys'
+      stdout.must_match /command-t plugin/
+    end
+
+    it "converts control key to C-" do
+      vimdb 'keys', 'C-z'
+      stdout.wont_match /0 keys/
+      stdout.must_match /C-z/
+    end
+
+    it "converts escape key to E-" do
+      vimdb 'keys', 'E-x'
+      stdout.wont_match /0 keys/
+      stdout.must_match /E-x/
+    end
+
+    it 'converts leader key to L-' do
+      vimdb 'keys', 'L-z'
+      stdout.must_match /1 row/
+    end
+
     it 'searches non-alphabetic characters' do
       vimdb 'keys', '!'
       stdout.must_match /!\{filter\}/

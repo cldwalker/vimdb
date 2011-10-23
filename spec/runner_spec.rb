@@ -22,8 +22,11 @@ describe Vimdb::Runner do
   end
 
   describe "rc file" do
-    before { ENV['VIMDB_RC'] = Tempfile.new(Time.now.to_i.to_s).path }
-    after  { ENV['VIMDB_RC'] = 'blarg' }
+    before {
+      @old_rc = ENV['VIMDB_RC']
+      ENV['VIMDB_RC'] = Tempfile.new(Time.now.to_i.to_s).path
+    }
+    after  { ENV['VIMDB_RC'] = @old_rc }
 
     def rc_contains(str)
       File.open(ENV['VIMDB_RC'], 'w') {|f| f.write str }
