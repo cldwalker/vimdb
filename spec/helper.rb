@@ -3,13 +3,13 @@ require 'vimdb'
 require 'open3'
 
 module TestHelpers
-  attr_reader :stdout, :stderr
+  attr_reader :stdout, :stderr, :process
 
   def vimdb(*args)
     args.unshift File.dirname(__FILE__) + '/../bin/vimdb'
     args.unshift({'RUBYLIB' => "#{File.dirname(__FILE__)}/../lib:" +
                  ENV['RUBYLIB']})
-    @stdout, @stderr, _ = Open3.capture3(*args)
+    @stdout, @stderr, @process = Open3.capture3(*args)
   end
 end
 
