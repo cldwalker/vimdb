@@ -22,4 +22,4 @@ class MiniTest::Unit::TestCase
   include TestHelpers
 end
 
-at_exit { FileUtils.rm_f(ENV['VIMDB_DB']) }
+MiniTest::Unit.after_tests { FileUtils.rm_f(ENV['VIMDB_DB']) }
