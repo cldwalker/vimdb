@@ -26,6 +26,7 @@ class Vimdb::Runner < Thor
   method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
   desc 'keys [QUERY]', 'List vim keys'
   def keys(query = nil)
+    Vimdb.item('keys')
     search_item(query)
   end
 
@@ -39,7 +40,7 @@ class Vimdb::Runner < Thor
 
   common_options
   method_option :field, :default => 'name', :desc => 'field to query', :aliases => '-f'
-  desc 'opts [QUERY]', 'List vim commands'
+  desc 'commands [QUERY]', 'List vim commands'
   def commands(query = nil)
     Vimdb.item('commands')
     search_item(query)
