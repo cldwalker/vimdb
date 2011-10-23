@@ -14,7 +14,7 @@ describe Vimdb::Runner do
       stdout.must_match /vimdb commands.*vimdb keys.*vimdb opts/m
     end
 
-    %w{keys options commands}.each do |item|
+    Vimdb::Item.all.each do |item|
       it "info for #{item} prints info" do
         vimdb 'info', item
         stdout.must_match /^Created/

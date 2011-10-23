@@ -6,13 +6,7 @@ module Vimdb
       (@descendants ||= []) << mod
     end
 
-    def self.load_item(name)
-      require "vimdb/#{name}"
-    rescue LoadError
-    end
-
     def self.instance(name)
-      load_item(name)
       item = @descendants.find {|e| e.item_name == name } or
         abort "Item '#{name}' not found"
       item.new
@@ -20,6 +14,10 @@ module Vimdb
 
     def self.item_name
       name[/\w+$/].downcase
+    end
+
+    def self.all
+      @descendants.map(&:item_name)
     end
 
     def search(items, query, options = {})
@@ -59,3 +57,7 @@ module Vimdb
     end
   end
 end
+
+require 'vimdb/keys'
+require 'vimdb/options'
+require 'vimdb/commands'
