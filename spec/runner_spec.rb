@@ -1,6 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/helper')
 require 'tempfile'
-ENV['VIMDBRC'] = 'blarg'
 
 describe Vimdb::Runner do
   describe "commands" do
@@ -23,11 +22,11 @@ describe Vimdb::Runner do
   end
 
   describe "rc file" do
-    before { ENV['VIMDBRC'] = Tempfile.new(Time.now.to_i.to_s).path }
-    after  { ENV['VIMDBRC'] = 'blarg' }
+    before { ENV['VIMDB_RC'] = Tempfile.new(Time.now.to_i.to_s).path }
+    after  { ENV['VIMDB_RC'] = 'blarg' }
 
     def rc_contains(str)
-      File.open(ENV['VIMDBRC'], 'w') {|f| f.write str }
+      File.open(ENV['VIMDB_RC'], 'w') {|f| f.write str }
     end
 
     it "loads user-defined commands" do

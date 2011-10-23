@@ -1,6 +1,11 @@
 require 'minitest/autorun'
 require 'vimdb'
 require 'open3'
+require 'fileutils'
+
+ENV['VIMDB_RC'] = 'blarg'
+ENV['VIMDB_DB'] = File.dirname(__FILE__) + '/vimdb.pstore'
+ENV['VIMDB_FIXTURE_DIR'] = File.dirname(__FILE__) + '/fixtures'
 
 module TestHelpers
   attr_reader :stdout, :stderr, :process
@@ -16,3 +21,5 @@ end
 class MiniTest::Unit::TestCase
   include TestHelpers
 end
+
+at_exit { FileUtils.rm_f(ENV['VIMDB_DB']) }

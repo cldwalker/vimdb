@@ -3,7 +3,7 @@ require 'hirb'
 
 class Vimdb::Runner < Thor
   def self.start(*args)
-    rc = ENV['VIMDBRC'] || '~/.vimdbrc'
+    rc = ENV['VIMDB_RC'] || '~/.vimdbrc'
     begin
       load(rc) if File.exists?(File.expand_path(rc))
     rescue StandardError, SyntaxError, LoadError => err
