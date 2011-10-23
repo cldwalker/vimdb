@@ -54,7 +54,7 @@ module Vimdb
 
     if ENV['VIMDB_FIXTURE_DIR']
       def tempfile(name)
-        File.join ENV['VIMDB_FIXTURE_DIR'], name
+        File.join ENV['VIMDB_FIXTURE_DIR'], name.to_s
       end
     else
       def tempfile(name)

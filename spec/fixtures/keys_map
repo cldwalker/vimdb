@@ -1,0 +1,499 @@
+
+
+s  <Tab>       * <Esc>i<Right><C-R>=TriggerSnippet()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+   <NL>        * <C-W>_
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <C-K>       * <C-W>=
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <C-L>       * :nohls<CR><C-L>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <C-N>       * :<C-U>YRReplace '1', 'p'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  <C-P>       * :<C-U>YRReplace '-1', 'P'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  <C-W>o        <Plug>ZoomWin
+	Last set from ~/code/fork/vimfiles/plugins/zoomwin/plugin/ZoomWinPlugin.vim
+s  <C-X>       * b<BS><C-X>
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+   <Esc>ta       :ta _tag_
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   <Esc>ts       :stj _tag_
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   <Esc>tv       :!vo_maketags.pl %<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   <Esc>ax       :let arg = inputdialog("Arguments?: ","") | exe "new | %! ./"."# ". arg <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>aw       :new |r!
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>am       :!chmod +x %<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>ac       :lcd %:p:h <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>oh       :nohls <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>ol       :set invlist <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>oa       :set invautowrite <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>on       :set invnumber <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>a        [I:let nr = input("Which one: ")|exe "normal " . nr ."[\t"<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>h        yaw :exe "h ".@" <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>s        :w<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>l        :exe "normal v$hy" | exe "/".@" <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>b        :buffers <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>q      * :q!<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Esc>x      * :q<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <C-_>s      * :TCommentAs <C-R>=&ft<CR>_
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <C-_>n      * :TCommentAs <C-R>=&ft<CR><Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <C-_>a      * :TCommentAs<Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <C-_>b      * :TCommentBlock<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+v  <C-_>r      * :TCommentRight<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+v  <C-_>i      * :TCommentInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+no <C-_>r      * :TCommentRight<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <C-_><Space> * :TComment<Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <C-_>p      * m`vip:TComment<CR>``
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+v  <C-_><C-_>  * :TCommentMaybeInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+no <C-_><C-_>  * :TComment<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>ys     :YRShow<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/yankring.vim
+   <Space>ri     :Rintegrationtest
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>rf     :Rfunctionaltest
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>ru     :Runittest
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>rv     :Rview
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>rc     :Rcontroller
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>rm     :Rmodel
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-rails.vim
+   <Space>gt     :Gstatus<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-fugitive.vim
+   <Space>ab     :Btabedit<Space>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-bundler.vim
+   <Space>tl     :Tlist<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/taglist.vim
+   <Space>t>     :Tabularize hash<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>t:     :Tabularize symbols<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>tz     :Tabularize<Space>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>t=     :Tabularize assignment<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>th     :Tabularize /:\zs<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>ta     :Tabularize /|<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tabular.vim
+   <Space>gs     :GrepSnippets<Space>
+	Last set from ~/code/fork/vimfiles/after/plugin/snipmate.vim
+   <Space>an     :NERDTreeToggle<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/nerdtree.vim
+   <Space>ag     :Gist<Space>
+	Last set from ~/code/fork/vimfiles/after/plugin/gist.vim
+   <Space>ac     :ConqueTermTab bash<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/conque.vim
+n  <Space>tb     :CommandTBuffer<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/command-t.vim
+n  <Space>tf     :CommandTFlush<CR>:CommandT<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/command-t.vim
+n  <Space>d      :CommandT<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/command-t.vim
+   <Space>_s   * :TCommentAs <C-R>=&ft<CR>_
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>_n   * :TCommentAs <C-R>=&ft<CR><Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>_a   * :TCommentAs<Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>_b   * :TCommentBlock<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+x  <Space>_r   * :TCommentRight<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+nos<Space>_r   * :TCommentRight<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+x  <Space>_i   * :TCommentInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>_<Space> * :TComment<Space>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+   <Space>_p   * vip:TComment<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+x  <Space>__   * :TCommentMaybeInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+nos<Space>__   * :TComment<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+n  <Space>Z      <Plug>SearchFoldRestore
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+n  <Space>iz     <Plug>SearchFoldInverse
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+n  <Space>z      <Plug>SearchFoldNormal
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+n  <Space>b      :CommandTBuffer<CR>
+	Last set from ~/code/fork/vimfiles/plugins/command-t/plugin/command-t.vim
+n  <Space>t      :CommandT<CR>
+	Last set from ~/code/fork/vimfiles/plugins/command-t/plugin/command-t.vim
+   <Space>,      :set imi=1<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tj     :exe ":tselect /^".expand("<cword>")<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tt     :!ctags -R --exclude='*.js'<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>yf     :let @* = expand("%:p")<CR>:echo "Copied"<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>c    * @:
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>l    * <C-W>l
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>k    * <C-W>k
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>j    * <C-W>j
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>h    * <C-W>h
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>p      :cp<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>n      :cn<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tc     :tabnew<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tm     :tabmove<Space>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tp     :tabprevious<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tn     :tabnext<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>to     :tabonly<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>tq     :tabclose<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>te     :tabedit<Space>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>v    * <C-W><C-V><C-L>:e ~/.vimrc<CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  <Space>e    * :e <C-R>=expand("%:p:h") . "/" <CR>
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+   <Space>gv     :GrepVim<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>gk     :GrepKeys<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>gp     :GrepPlugins<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>gw     :exe ":GitGrep " expand("<cword>")<CR>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>gg     :GitGrep<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>gr     :Grep<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>f      :Ack<Space>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+n  <Space>s    * :call StripTrailingWhiteSpace()<CR>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+   <Space>w      :call OpenURL()<CR>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+v  #             :TComment<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/tcomment.vim
+o  $             YRMapsExpression("<SNR>35_", "$")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+s  %           * b<BS>%
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+s  '           * b<BS>'
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+o  +             YRMapsExpression("<SNR>35_", "+")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+   ,.            :source ~/.vim/plugins/vim-vimoutliner/ftplugin/vo_base.vim<CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+o  ,             YRMapsExpression("<SNR>35_", ",")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+   -sw           dd v ]z <<
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   -f            O <Esc> k dd
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   -k            :call Omove("k") <CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+   -j            :call Omove("j") <CR>
+	Last set from ~/code/fork/vimfiles/after/plugin/vim-vimoutliner.vim
+o  -             YRMapsExpression("<SNR>35_", "-")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  .             YRMapsExpression("<SNR>35_", ".")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  /             YRMapsExpression("<SNR>35_", "/", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+v  /           * /\v
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+n  /           * /\v
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+o  0             YRMapsExpression("<SNR>35_", "0")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ;             YRMapsExpression("<SNR>35_", ";")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ?             YRMapsExpression("<SNR>35_", "?", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  @             YRMapsExpression("<SNR>35_", "@", "1")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  B             YRMapsExpression("<SNR>35_", "B")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  D             D<SNR>35_yrrecord
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+v  D             y'>p
+	Last set from ~/code/fork/vimfiles/rc/keys.vim
+o  E             YRMapsExpression("<SNR>35_", "E")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  F             YRMapsExpression("<SNR>35_", "F", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  G             YRMapsExpression("<SNR>35_", "G")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  H             YRMapsExpression("<SNR>35_", "H")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  L             YRMapsExpression("<SNR>35_", "L")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  M             YRMapsExpression("<SNR>35_", "M")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  P           * :<C-U>YRPaste 'P', 'v'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  P           * :<C-U>YRPaste 'P'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  S             <Plug>VSurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+o  T             YRMapsExpression("<SNR>35_", "T", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+s  U           * b<BS>U
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+o  W             YRMapsExpression("<SNR>35_", "W")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  X             X<SNR>35_yrrecord
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  Y             Y<SNR>35_yrrecord
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+s  \           * b<BS>\
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+s  ^           * b<BS>^
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+o  ^             YRMapsExpression("<SNR>35_", "^")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  _             YRMapsExpression("<SNR>35_", "_")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+s  `           * b<BS>`
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+o  a`            YRMapsExpression("<SNR>35_", "a`")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a'            YRMapsExpression("<SNR>35_", "a'")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a"            YRMapsExpression("<SNR>35_", "a\"")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  aB            YRMapsExpression("<SNR>35_", "aB")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a{            YRMapsExpression("<SNR>35_", "a{")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a}            YRMapsExpression("<SNR>35_", "a}")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  at            YRMapsExpression("<SNR>35_", "at")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a<            YRMapsExpression("<SNR>35_", "a<")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a>            YRMapsExpression("<SNR>35_", "a>")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ab            YRMapsExpression("<SNR>35_", "ab")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a(            YRMapsExpression("<SNR>35_", "a(")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a)            YRMapsExpression("<SNR>35_", "a)")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a[            YRMapsExpression("<SNR>35_", "a[")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  a]            YRMapsExpression("<SNR>35_", "a]")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ap            YRMapsExpression("<SNR>35_", "ap")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  as            YRMapsExpression("<SNR>35_", "as")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  aW            YRMapsExpression("<SNR>35_", "aW")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  aw            YRMapsExpression("<SNR>35_", "aw")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  b             YRMapsExpression("<SNR>35_", "b")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  cs            <Plug>Csurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+x  d           * :YRDeleteRange 'v'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  d             YRMapsExpression("<SNR>35_", "d")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  ds            <Plug>Dsurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+o  e             YRMapsExpression("<SNR>35_", "e")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  f             YRMapsExpression("<SNR>35_", "f", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  gx            <Plug>NetrwBrowseX
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+n  gp          * :<C-U>YRPaste 'gp'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  gP          * :<C-U>YRPaste 'gP'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  gE            YRMapsExpression("<SNR>35_", "gE")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ge            YRMapsExpression("<SNR>35_", "ge")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  gg            YRMapsExpression("<SNR>35_", "gg")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  gj            YRMapsExpression("<SNR>35_", "gj")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  gk            YRMapsExpression("<SNR>35_", "gk")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  g$            YRMapsExpression("<SNR>35_", "g$")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  gm            YRMapsExpression("<SNR>35_", "gm")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  g^            YRMapsExpression("<SNR>35_", "g^")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  g_            YRMapsExpression("<SNR>35_", "g_")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  gS            <Plug>VgSurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+x  gC          * :TCommentMaybeInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+n  gCc         * :let w:tcommentPos = getpos(".") | set opfunc=tcomment#OperatorLineAnyway<CR>g@$
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+n  gC          * :let w:tcommentPos = getpos(".") | set opfunc=tcomment#OperatorAnyway<CR>g@
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+x  gc          * :TCommentMaybeInline<CR>
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+n  gcc         * :let w:tcommentPos = getpos(".") | set opfunc=tcomment#OperatorLine<CR>g@$
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+n  gc          * :let w:tcommentPos = getpos(".") | set opfunc=tcomment#Operator<CR>g@
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+o  h             YRMapsExpression("<SNR>35_", "h")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i`            YRMapsExpression("<SNR>35_", "i`")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i'            YRMapsExpression("<SNR>35_", "i'")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i"            YRMapsExpression("<SNR>35_", "i\"")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  iB            YRMapsExpression("<SNR>35_", "iB")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i{            YRMapsExpression("<SNR>35_", "i{")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i}            YRMapsExpression("<SNR>35_", "i}")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  it            YRMapsExpression("<SNR>35_", "it")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i<            YRMapsExpression("<SNR>35_", "i<")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i>            YRMapsExpression("<SNR>35_", "i>")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ib            YRMapsExpression("<SNR>35_", "ib")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i(            YRMapsExpression("<SNR>35_", "i(")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i)            YRMapsExpression("<SNR>35_", "i)")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i[            YRMapsExpression("<SNR>35_", "i[")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  i]            YRMapsExpression("<SNR>35_", "i]")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  ip            YRMapsExpression("<SNR>35_", "ip")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  is            YRMapsExpression("<SNR>35_", "is")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  iW            YRMapsExpression("<SNR>35_", "iW")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  iw            YRMapsExpression("<SNR>35_", "iw")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  j             YRMapsExpression("<SNR>35_", "j")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  k             YRMapsExpression("<SNR>35_", "k")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  l             YRMapsExpression("<SNR>35_", "l")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  p           * :<C-U>YRPaste 'p', 'v'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  p           * :<C-U>YRPaste 'p'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  s           * :<C-U>echoerr 'surround.vim: Visual mode s has been removed in favor of S'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+o  t             YRMapsExpression("<SNR>35_", "t", 1)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  w             YRMapsExpression("<SNR>35_", "w")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  x           * :YRDeleteRange 'v'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  x             x<SNR>35_yrrecord
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+x  y           * :YRYankRange 'v'<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+o  y             YRMapsExpression("<SNR>35_", "y")
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+n  ySS           <Plug>YSsurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  ySs           <Plug>YSsurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  yss           <Plug>Yssurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  yS            <Plug>YSurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  ys            <Plug>Ysurround
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+s  <Left>      * <Esc>bi
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+s  <Right>     * <Esc>a
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+s  <BS>        * b<BS>
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+s  <S-Tab>     * <Esc>i<Right><C-R>=BackwardsSnippet()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/snipmate.vim/after/plugin/snipMate.vim
+n  <Plug>NetrwBrowseX * :call netrw#NetrwBrowseX(expand("<cWORD>"),0)<CR>
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+n  <Plug>ZoomWin & :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
+	Last set from ~/code/fork/vimfiles/plugins/zoomwin/plugin/ZoomWinPlugin.vim
+n  <SNR>35_yrrecord * :call YRRecord3()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+v  <Plug>VgSurround * :<C-U>call <SNR>34_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+v  <Plug>VSurround * :<C-U>call <SNR>34_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>YSurround * :<C-U>set opfunc=<SNR>34_opfunc2<CR>g@
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>Ysurround * :<C-U>set opfunc=<SNR>34_opfunc<CR>g@
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>YSsurround * :<C-U>call <SNR>34_opfunc2(v:count1)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>Yssurround * :<C-U>call <SNR>34_opfunc(v:count1)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>Csurround * :<C-U>call <SNR>34_changesurround()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <Plug>Dsurround * :<C-U>call <SNR>34_dosurround(<SNR>34_inputtarget())<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-surround/plugin/surround.vim
+n  <F11>       * :call conque_term#exec_file()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/vim-conque/plugin/conque_term.vim
+n  <Plug>SearchFoldRestore * :<C-U>call SearchFoldRestore()<CR>
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+n  <Plug>SearchFoldInverse * :<C-U>call SearchFold(1)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+n  <Plug>SearchFoldNormal * :<C-U>call SearchFold(0)<CR>
+	Last set from ~/code/fork/vimfiles/plugins/searchfold.vim/plugin/searchfold_0.9.vim
+x  <BS>          "-d
+v  <D-x>         "*d
+v  <D-c>         "*y
+v  <D-v>         "-d"*P
+n  <D-v>         "*P
