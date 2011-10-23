@@ -9,9 +9,9 @@ class Vimdb::Commands < Vimdb::Item
   end
 
   def create_index_file
-    file = tempfile
-    vim 'silent help index.txt', "silent! w! #{file}"
-    file
+    tempfile(:commands_index) do |file|
+      vim 'silent help index.txt', "silent! w! #{file}"
+    end
   end
 
   def parse_index_file(file)
@@ -32,9 +32,9 @@ class Vimdb::Commands < Vimdb::Item
   end
 
   def create_command_file
-    file = tempfile
-    vim "redir! > #{file}", 'exe "silent! verbose command"', 'redir END'
-    file
+    tempfile(:commands_command) do |file|
+      vim "redir! > #{file}", 'exe "silent! verbose command"', 'redir END'
+    end
   end
 
   def parse_command_file(file)

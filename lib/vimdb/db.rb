@@ -3,7 +3,7 @@ require 'pstore'
 module Vimdb
   class DB
     attr_accessor :file
-    def initialize(file = Dir.home + '/.vimdb.pstore')
+    def initialize(file = ENV['VIMDB_DB'] || Dir.home + '/.vimdb.pstore')
       @file = file
       @db = PStore.new(@file)
     end

@@ -52,8 +52,16 @@ module Vimdb
       system %[#{Vimdb.vim} -c 'colorscheme default | #{cmds.join(' | ')} | qa']
     end
 
-    def tempfile
-      file = Tempfile.new(Time.now.to_i.to_s).path
+    if ENV['VIMDB_FIXTURE_DIR']
+      def tempfile(name)
+        File.join ENV['VIMDB_FIXTURE_DIR'], name
+      end
+    else
+      def tempfile(name)
+        file = Tempfile.new(Time.now.to_i.to_s).path
+        yield(file)
+        file
+      end
     end
   end
 end

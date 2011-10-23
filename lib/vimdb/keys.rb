@@ -38,17 +38,18 @@ class Vimdb::Keys < Vimdb::Item
   private
 
   def get_leader
-    file = tempfile
-    leader_cmd = %[silent! echo exists("mapleader") ? mapleader : ""]
-    vim "redir! > #{file}", leader_cmd, 'redir END'
+    file = tempfile(:keys_leader) do |file|
+      leader_cmd = %[silent! echo exists("mapleader") ? mapleader : ""]
+      vim "redir! > #{file}", leader_cmd, 'redir END'
+    end
     leader = File.readlines(file).last.chomp
     {' ' => '<Space>', '' => '\\'}[leader] || leader
   end
 
   def create_index_file
-    file = tempfile
-    vim 'silent help index.txt', "silent! w! #{file}"
-    file
+    tempfile(:keys_index) do |file|
+      vim 'silent help index.txt', "silent! w! #{file}"
+    end
   end
 
   def parse_index_file(file)
@@ -90,10 +91,10 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def create_map_file
-    file = tempfile
-    vim "redir! > #{file}", "silent! verbose map", "silent! verbose map!",
+    tempfile(:keys_map) do |file|
+      vim "redir! > #{file}", "silent! verbose map", "silent! verbose map!",
       'redir END'
-    file
+    end
   end
 
   def parse_map_file(file)
