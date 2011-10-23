@@ -5,7 +5,7 @@ module Vimdb
   autoload :Item,   'vimdb/item'
 
   class << self; attr_accessor :default_item, :vim, :plugins_dir; end
-  self.default_item = ENV['VIMDB_ITEM'] || 'keys'
+  self.default_item = 'keys'
   self.vim = 'vim'
   self.plugins_dir = 'bundle'
 
