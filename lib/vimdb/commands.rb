@@ -23,6 +23,10 @@ class Vimdb::Commands < Vimdb::Item
       if line =~ /^(\S+)\t+(\S+)\t+([^\t]+)$/
         cmd = { name: $2, tag: $1, desc: $3, from: 'default' }
         cmd[:name].sub!(/^:/, '')
+        if cmd[:name][/^(.*)\[([a-z]+)\]$/]
+          cmd[:alias] = $1
+          cmd[:name] = $1 + $2
+        end
         cmds << cmd
       elsif line =~ /^\t+([^\t]+)$/
         cmds[-1][:desc] << ' ' + $1
@@ -53,7 +57,7 @@ class Vimdb::Commands < Vimdb::Item
   end
 
   def display_fields
-    [:name, :desc, :from]
+    [:name, :alias, :from, :desc]
   end
 
   def info

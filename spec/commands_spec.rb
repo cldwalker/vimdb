@@ -11,17 +11,17 @@ describe "vimdb commands" do
     stdout.must_match /1 row/
   end
 
-  it 'lists command names without symbol' do
+  it 'lists command names without symbol and alias' do
     vimdb 'commands', 'bad'
     stdout.must_include <<-STR
-| bad[d] | add buffer to the buffer list | default |
+| badd | bad   | default | add buffer to the buffer list |
 STR
   end
 
   it 'lists multi-line index commands correctly' do
     vimdb 'commands', 'wp'
     stdout.must_include <<-STR
-| wp[revious] | write to a file and go to previous file in argument list | default |
+| wprevious | wp    | default | write to a file and go to previous file in argument list |
 STR
   end
 end
