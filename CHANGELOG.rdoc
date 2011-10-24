@@ -1,2 +1,7 @@
+= 0.2.0
+* Several bug fixes
+* Add support for commands
+* Add tests
+
 = 0.1.0
 * Finally a release!

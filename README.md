@@ -1,10 +1,10 @@
 Description
 ===========
 
-Improve your knowledge of vim by tabularizing vim items: keybindings, options and more. This allows for
-precise searching of items. Keys can be searched by keystroke, mode, description or where they came
-from.  This gem creates a vimdb database, ~/.vimdb.pstore, from your vim documentation. Tested with
-vim >= 7.2 on a mac.
+Improve your knowledge of vim by precise searching of vim items: keybindings, options and commands.
+For example, keys can be searched by keystroke, mode, description or where they came from.  This gem
+creates a vimdb database, ~/.vimdb.pstore, from your vim documentation. Tested with vim >= 7.2 on a
+mac. Works only on ruby 1.9.x.
 
 Usage
 =====
@@ -38,7 +38,7 @@ Usage
     $ vimdb keys user -f=from
 
     # Plugins are assumed to be in ~/.vim/bundle/ i.e. for pathogen
-    # Change with Vimdb::Keys.config[:plugins_dir]
+    # Change with Vimdb.plugins_dir
     # List keys from my plugins
     $ vimdb keys plugin -f=from
 
@@ -50,6 +50,9 @@ Usage
 
     # List options that contain window in description
     $ vimdb opts window -f=desc
+
+    # List commands about buffers
+    $ vimdb commands buffer -f=desc
 
     # Info about how vim items were made
     $ vimdb info keys
@@ -84,10 +87,15 @@ Motivation
 
 Wanted to learn faster than :help would let me.
 
+Contributing
+============
+[See here](http://tagaholic.me/contributing.html)
+
 Todo
 ====
 
-* Tests!
-* Add support for more vim items - commands, variables, functions
+* Fix test coupling
+* More tests!
 * Fix keys - index.txt edge cases
+* Add support for more vim items - variables, functions
 * Considering user annotation for vim items
