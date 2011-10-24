@@ -1,0 +1,257 @@
+
+
+    Name        Args Range Complete  Definition
+! b Gblame      *    0               :execute s:Blame(<bang>0,<line1>,<line2>,<count>,[<f-args>])
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gbrowse     ?    0c    customlist :execute s:Browse(<bang>0,<line1>,<count>,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gcd         ?          customlist :cd<bang>  `=s:repo().bare() ? s:repo().dir(<q-args>) : s:repo().tree(<q-args>)`
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+  b Gcommit     ?          customlist :execute s:Commit(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gdiff       ?          customlist :execute s:Diff(<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Ge          ?          customlist :execute s:Edit('edit<bang>',0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gedit       ?          customlist :execute s:Edit('edit<bang>',0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Ggrep       ?          customlist :execute s:Grep(<bang>0,<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Git         ?          customlist :execute s:Git(<bang>0,<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Glcd        ?          customlist :lcd<bang> `=s:repo().bare() ? s:repo().dir(<q-args>) : s:repo().tree(<q-args>)`
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Glog        *          customlist :execute s:Log('grep<bang>',<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gmove       1          customlist :execute s:Move(<bang>0,<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gpedit      ?          customlist :execute s:Edit('pedit',<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gread       ?    0c    customlist :execute s:Edit((!<count> && <line1> ? '' : <count>).'read',<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gremove     0                    :execute s:Remove(<bang>0)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+  b Gsdiff      ?          customlist :execute s:Diff(1,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gsplit      ?          customlist :execute s:Edit('split',<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+  b Gstatus     0                    :execute s:Status()
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gtabedit    ?          customlist :execute s:Edit('tabedit',<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+  b Gvdiff      ?          customlist :execute s:Diff(0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gvsplit     ?          customlist :execute s:Edit('vsplit',<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gw          ?          customlist :execute s:Write(<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gwq         ?          customlist :execute s:Wq(<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+! b Gwrite      ?          customlist :execute s:Write(<bang>0,<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-fugitive/plugin/fugitive.vim
+    Ack         *          file      call Ack(<q-args>)
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+!   AddTabularPattern +                    call AddTabularPattern(<q-args>, <bang>0)
+	Last set from ~/code/fork/vimfiles/plugins/tabular/plugin/Tabular.vim
+!   AddTabularPipeline +                    call AddTabularPipeline(<q-args>, <bang>0)
+	Last set from ~/code/fork/vimfiles/plugins/tabular/plugin/Tabular.vim
+    CommandT    ?          dir       call <SNR>20_CommandTShowFileFinder(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/command-t/plugin/command-t.vim
+    CommandTBuffer 0                    call <SNR>20_CommandTShowBufferFinder()
+	Last set from ~/code/fork/vimfiles/plugins/command-t/plugin/command-t.vim
+    CommandTFlush 0                    call <SNR>20_CommandTFlush()
+	Last set from ~/code/fork/vimfiles/plugins/command-t/plugin/command-t.vim
+    ConqueTerm  +          shellcmd  call conque_term#open(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/vim-conque/plugin/conque_term.vim
+    ConqueTermSplit +          shellcmd  call conque_term#open(<q-args>, ['belowright split'])
+	Last set from ~/code/fork/vimfiles/plugins/vim-conque/plugin/conque_term.vim
+    ConqueTermTab +          shellcmd  call conque_term#open(<q-args>, ['tabnew'])
+	Last set from ~/code/fork/vimfiles/plugins/vim-conque/plugin/conque_term.vim
+    ConqueTermVSplit +          shellcmd  call conque_term#open(<q-args>, ['belowright vsplit'])
+	Last set from ~/code/fork/vimfiles/plugins/vim-conque/plugin/conque_term.vim
+    DoMatchParen 0                    runtime plugin/matchparen.vim | windo doau CursorMoved
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/matchparen.vim
+    Errors      0                    call s:ShowLocList()
+	Last set from ~/code/fork/vimfiles/plugins/syntastic/plugin/syntastic.vim
+!   Explore     *    0c    dir       call netrw#Explore(<count>,0,0+<bang>0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    GLVS        0                    call getscript#GetLatestVimScripts()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/getscriptPlugin.vim
+    GetLatestVimScripts 0                    call getscript#GetLatestVimScripts()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/getscriptPlugin.vim
+    GetScripts  0                    call getscript#GetLatestVimScripts()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/getscriptPlugin.vim
+    Gist        ?    %               :call Gist(<line1>, <line2>, <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/gist-vim/plugin/gist.vim
+    GitGrep     *          file      call GitGrep(<q-args>)
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+    Grep        *          file      call Grep(<q-args>)
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+    GrepKeys    1                    :cd ~/.vim | :call GitGrep('^[a-z]*map.*<args>') | :cd -
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+    GrepPlugins *          file      call Grep(<q-args> . ' ~/.vim/plugins')
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+    GrepSnippets 1                    :call GrepSnippets('<args>')
+	Last set from ~/code/fork/vimfiles/after/plugin/snipmate.vim
+    GrepVim     *                    :cd ~/.vim | :call GitGrep(<q-args>) | :cd -
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+    Helptags    0                    :call pathogen#helptags()
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Hexplore    *    0c    dir       call netrw#Explore(<count>,1,2+<bang>0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+!   MkVimball   +    .     file      call vimball#MkVimball(<line1>,<line2>,<bang>0,<f-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/vimballPlugin.vim
+    NERDTree    ?          dir       :call s:initNerdTree('<args>')
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NERDTreeClose 0                    :call s:closeTreeIfOpen()
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NERDTreeFind 0                    call s:findAndRevealPath()
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NERDTreeFromBookmark 1          customlist call s:initNerdTree('<args>')
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NERDTreeMirror 0                    call s:initNerdTreeMirror()
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NERDTreeToggle ?          dir       :call s:toggle('<args>')
+	Last set from ~/code/fork/vimfiles/plugins/nerdtree/plugin/NERD_tree.vim
+    NetUserPass *                    call NetUserPass(<f-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+!   NetrwClean  0                    call netrw#NetrwClean(<bang>0)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    NetrwSettings 0                    call netrwSettings#NetrwSettings()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+!   Nexplore    *                    call netrw#Explore(-1,0,0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    NoMatchParen 0                    windo 3match none | unlet! g:loaded_matchparen | au! matchparen
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/matchparen.vim
+    NotRocket   0    %               :<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/ge
+	Last set from ~/code/fork/vimfiles/rc/autoload/ruby.vim
+    Nread       *    1c              call netrw#NetrwSavePosn()|call netrw#NetRead(<count>,<f-args>)|call netrw#NetrwRestorePosn()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    Nsource     *                    call netrw#NetrwSavePosn()|call netrw#NetSource(<f-args>)|call netrw#NetrwRestorePosn()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    Nwrite      *    %               call netrw#NetrwSavePosn()|<line1>,<line2>call netrw#NetWrite(<f-args>)|call netrw#NetrwRestorePosn()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    OpenURL     1                    :!open <args>
+	Last set from ~/code/fork/vimfiles/rc/functions.vim
+!   Pexplore    *                    call netrw#Explore(-2,0,0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+!   Rails       *          dir       :if s:autoload()|call rails#new_app_command(<bang>0,<f-args>)|endif
+	Last set from ~/code/fork/vimfiles/plugins/vim-rails/plugin/rails.vim
+    RmVimball   *          dir       call vimball#SaveSettings()|call vimball#RmVimball(<f-args>)|call vimball#RestoreSettings()
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/vimballPlugin.vim
+!   Sexplore    *    0c    dir       call netrw#Explore(<count>,1,0+<bang>0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    SyntasticDisable ?                    call s:Disable(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/syntastic/plugin/syntastic.vim
+    SyntasticEnable ?                    call s:Enable(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/syntastic/plugin/syntastic.vim
+!   TComment    *    .     customlist keepjumps call tcomment#Comment(<line1>, <line2>, 'G', "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+!   TCommentAs  +    .     customlist call tcomment#CommentAs(<line1>, <line2>, "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+!   TCommentBlock *    .     customlist keepjumps call tcomment#Comment(<line1>, <line2>, 'B', "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+!   TCommentInline *    .     customlist keepjumps call tcomment#Comment(<line1>, <line2>, 'I', "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+!   TCommentMaybeInline *    .     customlist keepjumps call tcomment#Comment(<line1>, <line2>, 'i', "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+!   TCommentRight *    .     customlist keepjumps call tcomment#Comment(<line1>, <line2>, 'R', "<bang>", <f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tcomment_vim/plugin/tcomment.vim
+    TOhtml      0    %               :call tohtml#Convert2HTML(<line1>, <line2>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/tohtml.vim
+    Tabularize  *    .     customlist <line1>,<line2>call Tabularize(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/tabular/plugin/Tabular.vim
+    Texplore    *    0c    dir       call netrw#Explore(<count>,0,6        ,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    Tlist       0                    TlistToggle
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistAddFiles +          file      call s:Tlist_Add_Files(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistAddFilesRecursive +          dir       call s:Tlist_Add_Files_Recursive(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistClose  0                    call s:Tlist_Window_Close()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistDebug  ?          file      call s:Tlist_Debug_Enable(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistHighlightTag 0                    call s:Tlist_Window_Highlight_Tag( fnamemodify(bufname('%'), ':p'), line('.'), 2, 1)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistLock   0                    let Tlist_Auto_Update=0
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistMessages 0                    call s:Tlist_Debug_Show()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistOpen   0                    call s:Tlist_Window_Open()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistSessionLoad *          file      call s:Tlist_Session_Load(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistSessionSave *          file      call s:Tlist_Session_Save(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistShowPrototype *          buffer    echo Tlist_Get_Tag_Prototype_By_Line(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistShowTag *          buffer    echo Tlist_Get_Tagname_By_Line(<f-args>)
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistSync   0                    TlistHighlightTag
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistToggle 0                    call s:Tlist_Window_Toggle()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistUndebug 0                    call s:Tlist_Debug_Disable()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistUnlock 0                    let Tlist_Auto_Update=1
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    TlistUpdate 0                    call s:Tlist_Update_Current_File()
+	Last set from ~/code/fork/vimfiles/plugins/taglist.vim/plugin/taglist.vim
+    UseVimball  ?          dir       call vimball#Vimball(1,<f-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/vimballPlugin.vim
+!   Ve          1    1c    customlist :execute s:find(<count>,'edit<bang>',<q-args>,0)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vedit       1    1c    customlist :execute s:find(<count>,'edit<bang>',<q-args>,0)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vexplore    *    0c    dir       call netrw#Explore(<count>,1,4+<bang>0,<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/netrwPlugin.vim
+    VimballList 0                    call vimball#Vimball(0)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/vimballPlugin.vim
+    Vimuntar    ?          file      call tar#Vimuntar(<q-args>)
+	Last set from /usr/local/Cellar/macvim/7.3-57/MacVim.app/Contents/Resources/vim/runtime/plugin/tarPlugin.vim
+!   Vopen       1    1c    customlist :execute s:find(<count>,'edit<bang>',<q-args>,1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vpedit      1    1c    customlist :execute s:find(<count>,'pedit',<q-args>,<bang>1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vread       1    1c    customlist :execute s:find(<count>,'read',<q-args>,<bang>1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vsplit      1    1c    customlist :execute s:find(<count>,'split',<q-args>,<bang>1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vtabedit    1    1c    customlist :execute s:find(<count>,'tabedit',<q-args>,<bang>1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+!   Vvsplit     1    1c    customlist :execute s:find(<count>,'vsplit',<q-args>,<bang>1)
+	Last set from ~/code/fork/vimfiles/autoload/pathogen.vim
+    YRClear     0                    call s:YRClear()
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+!   YRDeleteRange ?    .               <line1>,<line2>call s:YRYankRange(<bang>1, <args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRGetElem   *                    call s:YRGetElem(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+!   YRGetMultiple ?                    call s:YRGetMultiple(<bang>0, <args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRMapsCreate 0                    call s:YRMapsCreate()
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRMapsDelete 0                    call s:YRMapsDelete()
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+ "  YRPaste     *    0c              call s:YRPaste(0,1,<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRPop       ?                    <line1>,<line2>call s:YRPop(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+ "  YRPush      ?                    call s:YRPush(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+ "  YRReplace   *    0c              call s:YRPaste(1,<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRSearch    ?                    call s:YRSearch(<q-args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRShow      ?                    call s:YRShow(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    YRToggle    ?                    call s:YRToggle(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+ "  YRYankCount *    0c              call s:YRYankCount(<args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+!   YRYankRange ?    .               <line1>,<line2>call s:YRYankRange(<bang>0, <args>)
+	Last set from ~/code/fork/vimfiles/plugins/yankring.vim/plugin/yankring.vim
+    ZoomWin     0                    :set lz|silent call ZoomWin#ZoomWin()|set nolz
+	Last set from ~/code/fork/vimfiles/plugins/zoomwin/plugin/ZoomWinPlugin.vim

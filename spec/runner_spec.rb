@@ -46,7 +46,7 @@ describe Vimdb::Runner do
 
     it "can be nonexistent" do
       vimdb
-      assert_equal true, process.success?
+      process.success?.must_equal true
     end
 
     it "prints error when it fails to load" do
