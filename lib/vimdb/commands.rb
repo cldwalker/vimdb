@@ -16,7 +16,6 @@ class Vimdb::Commands < Vimdb::Item
 
   def parse_index_file(file)
     lines = File.read(file)[/={10,}\n5. EX commands.*/m].split("\n")
-    lines = lines.drop_while {|e| e !~ /^\|/ }
 
     cmds = []
     lines.each do |line|
@@ -43,6 +42,7 @@ class Vimdb::Commands < Vimdb::Item
 
   def parse_command_file(file)
     lines = File.read(file).strip.split("\n")
+    completions = Regexp.union('dir', 'file', 'buffer', 'shellcmd', 'customlist')
 
     lines.slice_before {|e| e !~ /Last set/ }.map do |arr|
       cmd = {}
@@ -52,6 +52,10 @@ class Vimdb::Commands < Vimdb::Item
       cmd[:from] << ' plugin' if cmd[:from] != 'user'
       cmd[:name]  = arr[0][/^(?:[!b" ]+)(\S+)/, 1]
       cmd[:desc]  = arr[0][/^(?:[!b" ]+)\S+\s*(.*)$/, 1]
+      if cmd[:desc][/^(\*|\+|\?|\d)\s+(\dc?|%|\.)?\s*(#{completions})?\s*(.*)/]
+        cmd[:args] = $1
+        cmd[:desc] = $4
+      end
       cmd
     end.compact
   end
