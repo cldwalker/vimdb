@@ -1,3 +1,4 @@
+gem 'minitest' unless ENV['NO_RUBYGEMS']
 require 'minitest/autorun'
 require 'vimdb'
 require 'open3'
