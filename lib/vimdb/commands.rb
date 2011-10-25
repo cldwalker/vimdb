@@ -48,8 +48,8 @@ class Vimdb::Commands < Vimdb::Item
       cmd = {}
 
       cmd[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1] or next
-      cmd[:from] = cmd[:file].to_s[%r{/#{@plugins_dir}/([^/]+)\S+}, 1] || 'user'
-      cmd[:from] << ' plugin' if cmd[:from] != 'user'
+      match = cmd[:file].to_s.match(%r{/#{@plugins_dir}/(?<plugin>[^/]+)})
+      cmd[:from] = match ? match[:plugin] + ' plugin' : 'user'
       cmd[:name]  = arr[0][/^(?:[!b" ]+)(\S+)/, 1]
       cmd[:desc]  = arr[0][/^(?:[!b" ]+)\S+\s*(.*)$/, 1]
       if cmd[:desc][/^(\*|\+|\?|\d)\s+(\dc?|%|\.)?\s*(#{completions})?\s*(.*)/]

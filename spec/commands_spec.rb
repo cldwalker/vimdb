@@ -45,4 +45,11 @@ STR
 | Gist |       | gist-vim plugin | :call Gist(<line1>, <line2>, <f-args>) |
 STR
   end
+
+  it "lists plugin commands using plugin_dir regexp correctly" do
+    vimdb 'commands', 'Vopen'
+    stdout.must_include <<-STR
+| Vopen |       | pathogen.vim plugin | :execute s:find(<count>,'edit<bang>',<q-args>,1) |
+STR
+  end
 end

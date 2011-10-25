@@ -103,8 +103,8 @@ class Vimdb::Keys < Vimdb::Item
       key = {}
 
       key[:file] = arr[1].to_s[%r{Last set from (\S+)}, 1] or next
-      key[:from] = key[:file].to_s[%r{/#{@plugins_dir}/([^/]+)\S+}, 1] || 'user'
-      key[:from] += ' plugin' if key[:from] != 'user'
+      match = key[:file].to_s.match(%r{/#{@plugins_dir}/(?<plugin>[^/]+)})
+      key[:from] = match ? match[:plugin] + ' plugin' : 'user'
 
       key[:key]  = arr[0][/^\S*\s+(\S+)/, 1]
       next if key[:key][/^(<Plug>|<SNR>)/]

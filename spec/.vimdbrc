@@ -1,1 +1,1 @@
-Vimdb.plugins_dir = 'plugins'
+Vimdb.plugins_dir = '(plugins|autoload)'
