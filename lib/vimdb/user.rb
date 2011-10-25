@@ -2,12 +2,12 @@ module Vimdb
   class User
     def initialize(item, db)
       @item, @db = item, db
-      @db_exists = File.exists?(@db.file)
+      @reload = !File.exists?(@db.file)
     end
 
     def items
-      @db_exists ? @db.get(@item.key) :
-        @db.set(@item.key, @item.create).tap { @db_exists = true }
+      !@reload && @db.get(@item.key) ||
+        @db.set(@item.key, @item.create).tap { @reload = false }
     end
 
     def search(query, options = {})
@@ -19,7 +19,7 @@ module Vimdb
     end
 
     def reload
-      @db_exists = false
+      @reload = true
     end
   end
 end

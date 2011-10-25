@@ -94,7 +94,6 @@ Contributing
 Todo
 ====
 
-* Fix test coupling
 * More tests!
 * Fix keys - index.txt edge cases
 * Add support for more vim items - variables, functions
