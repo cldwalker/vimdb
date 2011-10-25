@@ -29,6 +29,7 @@ end
 
 desc 'Run tests'
 task :test do |t|
+  ENV['RUBYLIB'] = 'lib:' + ENV['RUBYLIB']
   sh 'testrb spec/*_spec.rb'
 end
 
