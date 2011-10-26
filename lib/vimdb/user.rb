@@ -11,7 +11,8 @@ module Vimdb
     end
 
     def search(query, options = {})
-      results = @item.search(items, query, options)
+      results = @item.search(items.dup, query, options)
+      results = items - results if options[:not]
       sort = options[:sort] || options[:field] || @item.default_field
       results.sort_by! {|e| e[sort.to_sym] || '' }
       results.reverse! if options[:reverse_sort]
