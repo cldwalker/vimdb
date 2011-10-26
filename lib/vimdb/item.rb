@@ -25,7 +25,15 @@ module Vimdb
       if query
         query = Regexp.escape(query) unless options[:regexp]
         regex = Regexp.new(query, options[:ignore_case])
-        new_items = items.select {|e| e[options[:field].to_sym] =~ regex }
+
+        new_items = if options[:all]
+          items.select {|item|
+            display_fields.any? {|field| item[field] =~ regex }
+          }
+        else
+          items.select {|e| e[options[:field].to_sym] =~ regex }
+        end
+
         yield(new_items) if block_given?
         new_items = items - new_items if options[:not]
       end

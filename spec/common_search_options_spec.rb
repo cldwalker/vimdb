@@ -26,4 +26,11 @@ describe "common search options" do
     vimdb 'keys', 'blarg', '-n'
     stdout.must_match /903 rows/
   end
+
+  it "with --all option searches all fields" do
+    vimdb 'keys', 'C', '-a'
+    stdout.must_match /359 rows/
+    # from desc field
+    stdout.must_include ' :TComment<CR>'
+  end
 end

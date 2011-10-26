@@ -31,6 +31,9 @@ Usage
     # List keys with Leader
     $ vimdb keys L-
 
+    # List keys with no Leader - not of last search
+    $ vimdb keys L- -n
+
     # List insert mode keys
     $ vimdb keys -m=i
 
@@ -51,8 +54,8 @@ Usage
     # List options that contain window in description
     $ vimdb opts window -f=desc
 
-    # List commands about buffers
-    $ vimdb commands buffer -f=desc
+    # List commands mentioning 'buffer' in any field
+    $ vimdb commands buffer -a
 
     # Info about how vim items were made
     $ vimdb info keys
