@@ -61,6 +61,13 @@ Usage
     # For more
     $ vimdb help
 
+Configuration
+=============
+
+Configure vimdb with a ~/.vimdbrc, which is loaded before every command request. Use it to define
+additional commands. For an example, [see my rc
+file](https://github.com/cldwalker/dotfiles/blob/master/.vimdbrc).
+
 Key Modes
 =========
 
