@@ -31,7 +31,8 @@ module Vimdb
             fields.any? {|field| item[field] =~ regex }
           }
         else
-          items.select {|e| e[options[:field].to_sym] =~ regex }
+          search_field = options[:field] ? options[:field].to_sym : default_field
+          items.select {|item| item[search_field] =~ regex }
         end
 
         yield(new_items) if block_given?
@@ -55,6 +56,10 @@ module Vimdb
 
     def fields
       raise NotImplementedError
+    end
+
+    def default_field
+      fields[0]
     end
 
     private

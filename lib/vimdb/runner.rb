@@ -13,7 +13,7 @@ class Vimdb::Runner < Thor
     super
   end
 
-  def self.common_options
+  def self.common_search_options
     method_option :reload, :type => :boolean, :desc => 'reloads items'
     method_option :sort, :type => :string, :desc => 'sort by field', :aliases => '-s'
     method_option :reverse_sort, :type => :boolean, :aliases => '-R'
@@ -21,10 +21,10 @@ class Vimdb::Runner < Thor
     method_option :regexp, :type => :boolean, :aliases => '-r', :desc => 'query is a regexp'
     method_option :not, :type => :boolean, :aliases => '-n', :desc => 'return non-matching results'
     method_option :all, :type => :boolean, :aliases => '-a', :desc => 'search all fields'
+    method_option :field, :type => :string, :desc => 'field to query', :aliases => '-f'
   end
 
-  common_options
-  method_option :field, :default => 'key', :desc => 'field to query', :aliases => '-f'
+  common_search_options
   method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
   desc 'keys [QUERY]', 'List vim keys'
   def keys(query = nil)
@@ -32,16 +32,14 @@ class Vimdb::Runner < Thor
     search_item(query)
   end
 
-  common_options
-  method_option :field, :default => 'name', :desc => 'field to query', :aliases => '-f'
+  common_search_options
   desc 'opts [QUERY]', 'List vim options'
   def opts(query = nil)
     Vimdb.item('options')
     search_item(query)
   end
 
-  common_options
-  method_option :field, :default => 'name', :desc => 'field to query', :aliases => '-f'
+  common_search_options
   desc 'commands [QUERY]', 'List vim commands'
   def commands(query = nil)
     Vimdb.item('commands')

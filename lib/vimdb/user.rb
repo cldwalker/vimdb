@@ -12,7 +12,7 @@ module Vimdb
 
     def search(query, options = {})
       results = @item.search(items, query, options)
-      sort = options[:sort] || options[:field]
+      sort = options[:sort] || options[:field] || @item.default_field
       results.sort_by! {|e| e[sort.to_sym] || '' }
       results.reverse! if options[:reverse_sort]
       results
