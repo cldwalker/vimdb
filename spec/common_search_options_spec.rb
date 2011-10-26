@@ -22,8 +22,8 @@ describe "common search options" do
     stdout.must_match /q:.*1 row/m
   end
 
-  it 'with --mode option ANDs mode to search' do
-    vimdb 'keys', 'gm', '-m=n'
-    stdout.must_match /1 row/
+  it "with --not option returns all non-matching results" do
+    vimdb 'keys', 'blarg', '-n'
+    stdout.must_match /903 rows/
   end
 end

@@ -18,13 +18,13 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def search(keys, query, options = {})
-    keys = super
-    if options[:mode]
-      keys.select! do |key|
-        options[:mode].split('').any? {|m| key[:mode].include?(m) }
+    super do |keys|
+      if options[:mode]
+        keys.select! do |key|
+          options[:mode].split('').any? {|m| key[:mode].include?(m) }
+        end
       end
     end
-    keys
   end
 
   def info

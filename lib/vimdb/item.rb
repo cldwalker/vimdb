@@ -21,12 +21,15 @@ module Vimdb
     end
 
     def search(items, query, options = {})
+      new_items = items
       if query
         query = Regexp.escape(query) unless options[:regexp]
         regex = Regexp.new(query, options[:ignore_case])
-        items.select! {|e| e[options[:field].to_sym] =~ regex }
+        new_items = items.select {|e| e[options[:field].to_sym] =~ regex }
+        yield(new_items) if block_given?
+        new_items = items - new_items if options[:not]
       end
-      items
+      new_items
     end
 
     # key used to store item in DB

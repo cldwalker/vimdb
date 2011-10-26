@@ -19,6 +19,7 @@ class Vimdb::Runner < Thor
     method_option :reverse_sort, :type => :boolean, :aliases => '-R'
     method_option :ignore_case, :type => :boolean, :aliases => '-i'
     method_option :regexp, :type => :boolean, :aliases => '-r', :desc => 'query is a regexp'
+    method_option :not, :type => :boolean, :aliases => '-n', :desc => 'return non-matching results'
   end
 
   common_options

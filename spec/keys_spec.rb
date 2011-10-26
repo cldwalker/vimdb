@@ -11,6 +11,11 @@ describe "vimdb keys" do
     stdout.must_match /1 row/
   end
 
+  it 'with --mode option ANDs mode to search' do
+    vimdb 'keys', 'gm', '-m=n'
+    stdout.must_match /1 row/
+  end
+
   describe "edge cases" do
     it "converts control key to C-" do
       vimdb 'keys', 'C-z'
