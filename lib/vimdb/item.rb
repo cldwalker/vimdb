@@ -28,7 +28,7 @@ module Vimdb
 
         new_items = if options[:all]
           items.select {|item|
-            display_fields.any? {|field| item[field] =~ regex }
+            fields.any? {|field| item[field] =~ regex }
           }
         else
           items.select {|e| e[options[:field].to_sym] =~ regex }
@@ -53,7 +53,7 @@ module Vimdb
       raise NotImplementedError
     end
 
-    def display_fields
+    def fields
       raise NotImplementedError
     end
 

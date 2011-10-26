@@ -1,5 +1,5 @@
 class Vimdb::Options < Vimdb::Item
-  def display_fields
+  def fields
     [:name, :alias, :desc]
   end
 

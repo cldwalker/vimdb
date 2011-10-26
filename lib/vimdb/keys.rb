@@ -31,7 +31,7 @@ class Vimdb::Keys < Vimdb::Item
     "Created using index.txt and :map"
   end
 
-  def display_fields
+  def fields
     [:key, :mode, :from, :desc]
   end
 

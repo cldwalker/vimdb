@@ -60,7 +60,7 @@ class Vimdb::Commands < Vimdb::Item
     end.compact
   end
 
-  def display_fields
+  def fields
     [:name, :alias, :from, :desc]
   end
 

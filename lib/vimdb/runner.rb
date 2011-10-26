@@ -57,6 +57,6 @@ class Vimdb::Runner < Thor
   def search_item(query = nil)
     Vimdb.user.reload if options[:reload]
     keys = Vimdb.user.search(query, options)
-    puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.display_fields)
+    puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.fields)
   end
 end
