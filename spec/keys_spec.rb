@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/helper')
 describe "vimdb keys" do
   it "lists all keys by default" do
     vimdb 'keys'
-    stdout.must_match /903 rows/
+    stdout.must_match /894 rows/
   end
 
   it 'searches :key field by default' do
@@ -53,6 +53,11 @@ describe "vimdb keys" do
 
     it "doesn't list Plug keys" do
       vimdb 'keys', 'Plug'
+      stdout.must_match /0 rows/
+    end
+
+    it "doesn't list not used keys" do
+      vimdb 'keys', '^not used$', '-f=desc', '-r'
       stdout.must_match /0 rows/
     end
   end

@@ -75,6 +75,7 @@ class Vimdb::Keys < Vimdb::Item
         if cols.size >= 3
           key = translate_index_key cols[-2]
           keys << {mode: mode, key: key, desc: cols[-1].strip, :from => 'default'}
+          keys.pop if keys[-1][:desc] == 'not used'
         # add desc from following lines
         elsif cols.size == 2 && cols[0] == ''
           keys[-1][:desc] += ' ' + cols[1].strip
