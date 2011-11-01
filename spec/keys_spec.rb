@@ -19,13 +19,13 @@ describe "vimdb keys" do
   describe "edge cases" do
     it "converts control key to C-" do
       vimdb 'keys', 'C-z'
-      stdout.wont_match /0 rows/
+      stdout.wont_match /^0 rows/
       stdout.must_match /C-z/
     end
 
     it "converts escape key to E-" do
       vimdb 'keys', 'E-x'
-      stdout.wont_match /0 rows/
+      stdout.wont_match /^0 rows/
       stdout.must_match /E-x/
     end
 
@@ -53,12 +53,12 @@ describe "vimdb keys" do
 
     it "doesn't list Plug keys" do
       vimdb 'keys', 'Plug'
-      stdout.must_match /0 rows/
+      stdout.must_match /^0 rows/
     end
 
     it "doesn't list not used keys" do
       vimdb 'keys', '^not used$', '-f=desc', '-r'
-      stdout.must_match /0 rows/
+      stdout.must_match /^0 rows/
     end
 
     it "lists keys with description on following line" do

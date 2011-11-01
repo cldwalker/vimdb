@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/helper')
 describe "common search options" do
   it "with --field option searches another field" do
     vimdb 'keys', 'L-z' ,'-f=desc'
-    stdout.must_match /0 rows/
+    stdout.must_match /^0 rows/
   end
 
   it "with --reverse_sort option reverse sorts field" do
