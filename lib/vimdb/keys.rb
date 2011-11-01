@@ -84,6 +84,10 @@ class Vimdb::Keys < Vimdb::Item
             keys << { mode: mode, key: translate_index_key(cols[1]),
               desc: '', from: 'default' }
           end
+        elsif cols.size == 1
+          _, key = cols[0].split(/\s+/, 2)
+          keys << { mode: mode, key: translate_index_key(key),
+            desc: '', from: 'default' }
         end
       end
     end

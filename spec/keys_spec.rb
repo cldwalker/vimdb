@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/helper')
 describe "vimdb keys" do
   it "lists all keys by default" do
     vimdb 'keys'
-    stdout.must_match /921 rows/
+    stdout.must_match /928 rows/
   end
 
   it 'searches :key field by default' do
@@ -65,6 +65,13 @@ describe "vimdb keys" do
       vimdb 'keys', 'digraph', '-a'
       stdout.must_include <<-STR
 | {char1}<BS>{char2}   | i    | default |  enter digraph (only when 'digraph' option set) |
+STR
+    end
+
+    it "lists keys with no tabs" do
+      vimdb 'keys', 'C-r C-r'
+      stdout.must_include <<-STR
+| C-r C-r {0-9a-z"%#*:=}                 | i    | default |  insert the contents of a register literally               |
 STR
     end
   end

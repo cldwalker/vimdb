@@ -24,12 +24,12 @@ describe "common search options" do
 
   it "with --not option returns all non-matching results" do
     vimdb 'keys', 'blarg', '-n'
-    stdout.must_match /921 rows/
+    stdout.must_match /928 rows/
   end
 
   it "with --all option searches all fields" do
     vimdb 'keys', 'C', '-a'
-    stdout.must_match /359 rows/
+    stdout.must_match /365 rows/
     # from desc field
     stdout.must_include ' :TComment<CR>'
   end
