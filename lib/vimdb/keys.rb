@@ -78,7 +78,9 @@ class Vimdb::Keys < Vimdb::Item
         elsif cols.size == 2
           # add desc from following lines
           if cols[0] == ''
-            keys[-1][:desc] += ' ' + cols[1].strip
+            if cols[1] !~ /^(Meta characters|not used)/
+              keys[-1][:desc] += ' ' + cols[1].strip
+            end
           else
             keys << create_index_key(mode, cols[1])
           end

@@ -86,5 +86,12 @@ STR
 | C-w g C-] | n    | default | split window and do |:tjump| to tag under cursor |
       STR
     end
+
+    it "lists key without unrelated sentences after it" do
+      vimdb 'keys', 'delete character under', '-a'
+      stdout.must_include <<-STR
+| <Del> | i    | default | delete character under the cursor |
+STR
+    end
   end
 end
