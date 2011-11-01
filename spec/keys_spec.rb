@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/helper')
 describe "vimdb keys" do
   it "lists all keys by default" do
     vimdb 'keys'
-    stdout.must_match /894 rows/
+    stdout.must_match /921 rows/
   end
 
   it 'searches :key field by default' do
@@ -59,6 +59,13 @@ describe "vimdb keys" do
     it "doesn't list not used keys" do
       vimdb 'keys', '^not used$', '-f=desc', '-r'
       stdout.must_match /0 rows/
+    end
+
+    it "lists keys with description on following line" do
+      vimdb 'keys', 'digraph', '-a'
+      stdout.must_include <<-STR
+| {char1}<BS>{char2}   | i    | default |  enter digraph (only when 'digraph' option set) |
+STR
     end
   end
 end
