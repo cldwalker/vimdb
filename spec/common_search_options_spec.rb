@@ -13,7 +13,7 @@ describe "common search options" do
 
   it "with --regexp option converts search to regexp" do
     vimdb 'keys', '^C-', '-r'
-    stdout.wont_match /0 rows/
+    stdout.wont_match /^0 rows/
     stdout.must_match /C-a.*C-z/m
   end
 

@@ -68,11 +68,23 @@ describe "vimdb keys" do
 STR
     end
 
-    it "lists keys with no tabs" do
+    it "lists keys with no tabs and no description" do
       vimdb 'keys', 'C-r C-r'
       stdout.must_include <<-STR
 | C-r C-r {0-9a-z"%#*:=}                 | i    | default |  insert the contents of a register literally               |
 STR
+    end
+
+    it "lists keys with no tabs but a description" do
+      vimdb 'keys', 'C-v {number}'
+      stdout.must_include <<-STR
+| C-v {number} | i    | default | insert three digit decimal number as a single byte. |
+STR
+
+      vimdb 'keys', 'C-w g C-]'
+      stdout.must_include <<-STR
+| C-w g C-] | n    | default | split window and do |:tjump| to tag under cursor |
+      STR
     end
   end
 end

@@ -70,28 +70,38 @@ class Vimdb::Keys < Vimdb::Item
       #drop section header
       section_lines = section_lines.drop_while {|e| e !~ /^\|/ }
 
-      section_lines.each do |e|
-        cols = e.split(/\t+/)
+      section_lines.each do |line|
+        cols = line.split(/\t+/)
         if cols.size >= 3
-          keys << { mode: mode, key: translate_index_key(cols[-2]),
-            desc: cols[-1].strip, :from => 'default' }
+          keys << create_index_key(mode, cols[-2], cols[-1])
           keys.pop if keys[-1][:desc] == 'not used'
         elsif cols.size == 2
           # add desc from following lines
           if cols[0] == ''
             keys[-1][:desc] += ' ' + cols[1].strip
           else
-            keys << { mode: mode, key: translate_index_key(cols[1]),
-              desc: '', from: 'default' }
+            keys << create_index_key(mode, cols[1])
           end
         elsif cols.size == 1
-          _, key = cols[0].split(/\s+/, 2)
-          keys << { mode: mode, key: translate_index_key(key),
-            desc: '', from: 'default' }
+          tag, key = line.split(/\s+/, 2)
+          if tag == '|i_CTRL-V_digit|'
+            key, desc = key.split(/(?<=})/)
+            keys << create_index_key(mode, key, desc)
+          elsif tag == '|CTRL-W_g_CTRL-]|'
+            key, desc = key.split(/(?<=\])/)
+            keys << create_index_key(mode, key, desc)
+          else
+            keys << create_index_key(mode, key)
+          end
         end
       end
     end
     keys
+  end
+
+  def create_index_key(mode, key, desc = nil)
+    desc = desc ? desc.strip : ''
+    { mode: mode, key: translate_index_key(key), desc: desc, from: 'default' }
   end
 
   def translate_index_key(key)
