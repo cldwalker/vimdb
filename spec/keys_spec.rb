@@ -93,5 +93,12 @@ STR
 | <Del> | i    | default | delete character under the cursor |
 STR
     end
+
+    it "lists keys correctly that have desc from previous key" do
+      vimdb 'keys', '2$', '-r'
+      stdout.must_include <<-STR
+| 2   | n    | default | prepend to command to give a count |
+STR
+    end
   end
 end

@@ -73,7 +73,8 @@ class Vimdb::Keys < Vimdb::Item
       section_lines.each do |line|
         cols = line.split(/\t+/)
         if cols.size >= 3
-          keys << create_index_key(mode, cols[-2], cols[-1])
+          desc = cols[-1] == '"' ? keys[-1][:desc] : cols[-1]
+          keys << create_index_key(mode, cols[-2], desc)
           keys.pop if keys[-1][:desc] == 'not used'
         elsif cols.size == 2
           # add desc from following lines
