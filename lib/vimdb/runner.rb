@@ -46,7 +46,7 @@ class Vimdb::Runner < Thor
     search_item(query)
   end
 
-  desc 'info', 'Prints info about an item'
+  desc 'info [ITEM]', 'Prints info about an item'
   def info(item = nil)
     puts Vimdb.item(item).info
   end
