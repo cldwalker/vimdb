@@ -104,7 +104,5 @@ Contributing
 Todo
 ====
 
-* More tests!
-* Fix keys - index.txt edge cases
 * Add support for more vim items - variables, functions
 * Considering user annotation for vim items
