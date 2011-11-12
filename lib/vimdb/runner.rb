@@ -51,6 +51,23 @@ class Vimdb::Runner < Thor
     puts Vimdb.item(item).info
   end
 
+  common_search_options
+  desc 'tag ITEM TAG', 'Tags a specific item with a tag'
+  def tag(query, tag)
+    items = Vimdb.user.search(query, options)
+    if items.size > 1
+      Hirb.enable
+      items = Hirb::Menu.render(items, fields: Vimdb.item.fields)
+    end
+    items.each {|item| Vimdb.user.update_item(item, tag: tag) }
+  end
+
+  desc 'tag_list TAG', 'List items in tag'
+  def tag_list(tag)
+    keys = Vimdb.user.search(tag, field: 'tag')
+    puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.fields << :tag)
+  end
+
   private
   def search_item(query = nil)
     Vimdb.user.reload if options[:reload]
