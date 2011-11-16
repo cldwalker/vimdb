@@ -80,7 +80,7 @@ class Vimdb::Keys < Vimdb::Item
           # add desc from following lines
           if cols[0] == ''
             if cols[1] !~ /^(Meta characters|not used)/
-              keys[-1][:desc] += ' ' + cols[1].strip
+              keys[-1][:desc] += ' ' + cols[1].gsub(/^\s*\d?|\s*$/, '')
             end
           else
             keys << create_index_key(mode, cols[1])
@@ -103,7 +103,7 @@ class Vimdb::Keys < Vimdb::Item
   end
 
   def create_index_key(mode, key, desc = nil)
-    desc = desc ? desc.strip : ''
+    desc = desc ? desc.gsub(/^\s*\d?|\s*$/, '') : ''
     { mode: mode, key: translate_index_key(key), desc: desc, from: 'default' }
   end
 

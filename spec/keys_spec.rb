@@ -107,5 +107,12 @@ STR
 | 2   | n    | default | prepend to command to give a count |
 STR
     end
+
+    it "lists keys with numbered descriptions correctly" do
+      vimdb 'keys', 'C-b'
+      stdout.must_include <<-STR
+| C-b     | n    | default | scroll N screens Backwards      |
+STR
+    end
   end
 end
