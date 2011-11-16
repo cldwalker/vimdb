@@ -83,7 +83,9 @@ class Vimdb::Keys < Vimdb::Item
               keys[-1][:desc] += ' ' + cols[1].gsub(/^\s*\d?|\s*$/, '')
             end
           else
-            keys << create_index_key(mode, cols[1])
+            key, desc = cols[1].include?('use register') ?
+              cols[1].split(/\s+/, 2) : [cols[1], nil]
+            keys << create_index_key(mode, key, desc)
           end
         elsif cols.size == 1
           tag, key = line.split(/\s+/, 2)

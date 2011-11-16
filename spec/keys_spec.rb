@@ -111,7 +111,14 @@ STR
     it "lists keys with numbered descriptions correctly" do
       vimdb 'keys', 'C-b'
       stdout.must_include <<-STR
-| C-b     | n    | default | scroll N screens Backwards      |
+| C-b     | n    | default |   scroll N screens Backwards    |
+STR
+    end
+
+    it "lists key with incorrect separator between key and description" do
+      vimdb 'keys', 'use register', '-a'
+      stdout.must_include <<-STR
+| "{a-zA-Z0-9.%#:-"} | n    | default | use register {a-zA-Z0-9.%#:-"} for next delete, yank or put (uppercase to a... |
 STR
     end
   end
