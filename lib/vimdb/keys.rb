@@ -131,7 +131,7 @@ class Vimdb::Keys < Vimdb::Item
       next if key[:key][/^(<Plug>|<SNR>)/]
       key[:key] = translate_map_key(key[:key])
 
-      key[:desc] = arr[0][/^\S*\s+\S+\s+(.*)$/, 1]
+      key[:desc] = arr[0][/^\S*\s+\S+\s+\*?\s*(.*)$/, 1]
       key[:mode] = (mode = arr[0][/^[nvsxo!ilc]+/]) ?
         @mode_map[mode] || mode : 'nvso'
       key

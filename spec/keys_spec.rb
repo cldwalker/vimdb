@@ -51,6 +51,13 @@ describe "vimdb keys" do
       STR
     end
 
+    it "lists user keys with starred descriptions" do
+      vimdb 'keys', 'L-l'
+      stdout.must_include <<-STR
+| L-l | n    | user | <C-W>l |
+STR
+    end
+
     it "doesn't list Plug keys" do
       vimdb 'keys', 'Plug'
       stdout.must_match /^0 rows/
