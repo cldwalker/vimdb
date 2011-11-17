@@ -71,14 +71,14 @@ STR
     it "lists keys with description on following line" do
       vimdb 'keys', 'digraph', '-a'
       stdout.must_include <<-STR
-| {char1}<BS>{char2}   | i    | default |  enter digraph (only when 'digraph' option set) |
+| {char1}<BS>{char2}   | i    | default | enter digraph (only when 'digraph' option set) |
 STR
     end
 
     it "lists keys with no tabs and no description" do
       vimdb 'keys', 'C-r C-r'
       stdout.must_include <<-STR
-| C-r C-r {0-9a-z"%#*:=}                 | i    | default |  insert the contents of a register literally               |
+| C-r C-r {0-9a-z"%#*:=}                 | i    | default | insert the contents of a register literally                |
 STR
     end
 
@@ -111,7 +111,7 @@ STR
     it "lists keys with numbered descriptions correctly" do
       vimdb 'keys', 'C-b'
       stdout.must_include <<-STR
-| C-b     | n    | default |   scroll N screens Backwards    |
+| C-b     | n    | default | scroll N screens Backwards      |
 STR
     end
 
