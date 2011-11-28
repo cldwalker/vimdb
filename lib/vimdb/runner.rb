@@ -22,6 +22,7 @@ class Vimdb::Runner < Thor
     method_option :not, :type => :boolean, :aliases => '-n', :desc => 'return non-matching results'
     method_option :all, :type => :boolean, :aliases => '-a', :desc => 'search all fields'
     method_option :field, :type => :string, :desc => 'field to query', :aliases => '-f'
+    method_option :tab, :type => :boolean, :desc => 'print tab-delimited table'
   end
 
   common_search_options
@@ -55,6 +56,6 @@ class Vimdb::Runner < Thor
   def search_item(query = nil)
     Vimdb.user.reload if options[:reload]
     keys = Vimdb.user.search(query, options)
-    puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.fields)
+    puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.fields, tab: options[:tab])
   end
 end
