@@ -7,7 +7,7 @@ describe "vimdb opts" do
   end
 
   it 'searches :name field by default' do
-    vimdb 'opts' ,'wildignorec'
+    vimdb "opts wildignorec"
     stdout.must_match /1 row/
   end
 end

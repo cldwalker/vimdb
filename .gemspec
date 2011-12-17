@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor', '~> 0.14.6'
   s.add_dependency 'hirb', '~> 0.6.0'
   s.add_development_dependency 'minitest', '~> 2.5.1'
+  s.add_development_dependency 'bahia', '~> 0.3.0'
   s.files = Dir.glob(%w[{lib,spec}/**/*.rb bin/* [A-Z]*.{txt,rdoc,md} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
   s.files += Dir.glob(['spec/fixtures/*', 'spec/.vimdbrc'])
   s.extra_rdoc_files = ["README.md", "LICENSE.txt"]

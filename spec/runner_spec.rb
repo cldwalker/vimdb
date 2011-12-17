@@ -15,7 +15,7 @@ describe Vimdb::Runner do
 
     Vimdb::Item.all.each do |item|
       it "info for #{item} prints info" do
-        vimdb 'info', item
+        vimdb "info #{item}"
         stdout.must_match /^Created/
       end
     end
@@ -40,7 +40,7 @@ describe Vimdb::Runner do
       end
       RC
 
-      vimdb 'help', 'new_task'
+      vimdb "help new_task"
       stdout.must_match /vimdb new_task/
     end
 
