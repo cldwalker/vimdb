@@ -3,14 +3,14 @@ require 'tempfile'
 
 describe Vimdb::Runner do
   describe "commands" do
-    it "help prints help" do
-      vimdb 'help'
-      stdout.must_match /vimdb commands.*vimdb keys.*vimdb opts/m
+    it "--help prints help" do
+      vimdb '--help'
+      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*opts/m
     end
 
     it "no arguments prints help" do
       vimdb
-      stdout.must_match /vimdb commands.*vimdb keys.*vimdb opts/m
+      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*opts/m
     end
 
     Vimdb::Item.all.each do |item|
@@ -34,14 +34,14 @@ describe Vimdb::Runner do
 
     it "loads user-defined commands" do
       rc_contains <<-RC
-      class Vimdb::Runner < Thor
-        desc 'new_task', ''
-        def new_task; end
+      class Vimdb::Runner
+        desc 'some task'
+        def new_task(arg); end
       end
       RC
 
-      vimdb "help new_task"
-      stdout.must_match /vimdb new_task/
+      vimdb "new_task -h"
+      stdout.must_match /^Usage: vimdb new_task ARG/
     end
 
     it "can be nonexistent" do

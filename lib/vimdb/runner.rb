@@ -1,61 +1,53 @@
-require 'thor'
+require 'boson/runner'
 require 'hirb'
+ENV['BOSONRC'] = ENV['VIMDB_RC'] || '~/.vimdbrc'
 
-class Vimdb::Runner < Thor
-  def self.start(*args)
-    rc = ENV['VIMDB_RC'] || '~/.vimdbrc'
-    begin
-      load(rc) if File.exists?(File.expand_path(rc))
-    rescue StandardError, SyntaxError, LoadError => err
-      warn "Error while loading #{rc}:\n"+
-        "#{err.class}: #{err.message}\n    #{err.backtrace.join("\n    ")}"
-    end
-    super
-  end
+class Vimdb::Runner < Boson::Runner
 
   def self.common_search_options
-    method_option :reload, :type => :boolean, :desc => 'reloads items'
-    method_option :sort, :type => :string, :desc => 'sort by field', :aliases => '-s'
-    method_option :reverse_sort, :type => :boolean, :aliases => '-R'
-    method_option :ignore_case, :type => :boolean, :aliases => '-i'
-    method_option :regexp, :type => :boolean, :aliases => '-r', :desc => 'query is a regexp'
-    method_option :not, :type => :boolean, :aliases => '-n', :desc => 'return non-matching results'
-    method_option :all, :type => :boolean, :aliases => '-a', :desc => 'search all fields'
-    method_option :field, :type => :string, :desc => 'field to query', :aliases => '-f'
-    method_option :tab, :type => :boolean, :desc => 'print tab-delimited table'
+    option :reload, :type => :boolean, :desc => 'reloads items'
+    option :sort, :type => :string, :desc => 'sort by field'
+    option :reverse_sort, :type => :boolean
+    option :ignore_case, :type => :boolean
+    option :regexp, :type => :boolean, :desc => 'query is a regexp'
+    option :not, :type => :boolean, :desc => 'return non-matching results'
+    option :all, :type => :boolean, :desc => 'search all fields'
+    option :field, :type => :string, :desc => 'field to query'
+    option :tab, :type => :boolean, :desc => 'print tab-delimited table'
   end
 
   common_search_options
-  method_option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed', :aliases => '-m'
-  desc 'keys [QUERY]', 'List vim keys'
-  def keys(query = nil)
+  option :mode, :type => :string, :desc => 'search by mode, multiple modes are ORed'
+  desc 'List vim keys'
+  def keys(query = nil, options={})
     Vimdb.item('keys')
-    search_item(query)
+    search_item(query, options)
   end
 
   common_search_options
-  desc 'opts [QUERY]', 'List vim options'
-  def opts(query = nil)
+  desc 'List vim options'
+  def opts(query = nil, options={})
     Vimdb.item('options')
-    search_item(query)
+    search_item(query, options)
   end
 
   common_search_options
-  desc 'commands [QUERY]', 'List vim commands'
-  def commands(query = nil)
+  desc 'List vim commands'
+  def commands(query = nil, options={})
     Vimdb.item('commands')
-    search_item(query)
+    search_item(query, options)
   end
 
-  desc 'info [ITEM]', 'Prints info about an item'
+  desc 'Prints info about an item'
   def info(item = nil)
     puts Vimdb.item(item).info
   end
 
   private
-  def search_item(query = nil)
+  def search_item(query = nil, options)
     Vimdb.user.reload if options[:reload]
     keys = Vimdb.user.search(query, options)
     puts Hirb::Helpers::Table.render(keys, fields: Vimdb.item.fields, tab: options[:tab])
   end
+
 end
