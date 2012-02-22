@@ -29,7 +29,7 @@ end
 
 desc 'Run tests'
 task :test do |t|
-  ENV['RUBYLIB'] = 'lib:' + ENV['RUBYLIB']
+  ENV['RUBYLIB'] = ['lib', ENV['RUBYLIB']].compact.join(':')
   sh 'testrb spec/*_spec.rb'
 end
 
