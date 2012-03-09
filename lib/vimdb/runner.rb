@@ -26,9 +26,9 @@ class Vimdb::Runner < Boson::Runner
 
   common_search_options
   desc 'List vim options'
-  def opts(query = nil, options={})
+  def options(query = nil, opts={})
     Vimdb.item('options')
-    search_item(query, options)
+    search_item(query, opts)
   end
 
   common_search_options

@@ -5,12 +5,12 @@ describe Vimdb::Runner do
   describe "commands" do
     it "--help prints help" do
       vimdb '--help'
-      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*opts/m
+      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*options/m
     end
 
     it "no arguments prints help" do
       vimdb
-      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*opts/m
+      stdout.must_match /^Usage: vimdb COMMAND.*commands.*keys.*options/m
     end
 
     Vimdb::Item.all.each do |item|

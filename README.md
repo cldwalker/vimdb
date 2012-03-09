@@ -52,7 +52,7 @@ Usage
     $ vimdb keys completion -f=desc
 
     # List options that contain window in description
-    $ vimdb opts window -f=desc
+    $ vimdb options window -f=desc
 
     # List commands mentioning 'buffer' in any field
     $ vimdb commands buffer -a

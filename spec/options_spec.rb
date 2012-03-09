@@ -1,13 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/helper')
 
-describe "vimdb opts" do
+describe "vimdb options" do
   it "lists all options by default" do
-    vimdb 'opts'
+    vimdb 'options'
     stdout.must_match /359 rows/
   end
 
   it 'searches :name field by default' do
-    vimdb "opts wildignorec"
+    vimdb "options wildignorec"
     stdout.must_match /1 row/
   end
 end
