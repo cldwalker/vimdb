@@ -1,3 +1,6 @@
+= 0.4.1
+* Upgrade boson to fix multi-word arg bug
+
 = 0.4.0
 * Switch to boson
 
