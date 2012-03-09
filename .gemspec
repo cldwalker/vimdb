@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = "Search your vim keybindings precisely by keystroke, mode, description or where they came from. Search vim options by name, alias and description."
   s.required_rubygems_version = ">= 1.3.6"
   s.executables        = %w(vimdb)
-  s.add_dependency 'boson', '~> 1.0'
+  s.add_dependency 'boson', '>= 1.1.1'
   s.add_dependency 'hirb', '~> 0.6.0'
   s.add_development_dependency 'minitest', '~> 2.5.1'
   s.add_development_dependency 'bahia', '~> 0.3.0'

@@ -64,7 +64,6 @@ STR
     end
 
     it "doesn't list not used keys" do
-      skip 'fix multi-word'
       vimdb "keys '^not used$' -f=desc -r"
       stdout.must_match /^0 rows/
     end
@@ -77,7 +76,6 @@ STR
     end
 
     it "lists keys with no tabs and no description" do
-      skip 'fix multi-word'
       vimdb "keys 'C-r C-r'"
       stdout.must_include <<-STR
 | C-r C-r {0-9a-z"%#*:=}                 | i    | default | insert the contents of a register literally                |
@@ -85,7 +83,6 @@ STR
     end
 
     it "lists keys with no tabs but a description" do
-      skip 'fix multi-word'
       vimdb "keys 'C-v {number}'"
       stdout.must_include <<-STR
 | C-v {number} | i    | default | insert three digit decimal number as a single byte. |
