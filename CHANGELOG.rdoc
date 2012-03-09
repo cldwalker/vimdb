@@ -1,4 +1,5 @@
-= 0.4.1
+= 0.5.0
+* rename opts command to options
 * Upgrade boson to fix multi-word arg bug
 
 = 0.4.0
