@@ -11,7 +11,7 @@ change the directory). Tested with vim >= 7.2 on a mac. Works only on ruby 1.9.x
 Install
 =======
 
-   $ gem install vimdb
+    $ gem install vimdb
 
 Usage
 =====
@@ -35,7 +35,6 @@ Basic examples searching different vim items:
 
     # List options that contain word 'window' in any field
     $ vimdb options window -a
-
     +----------------+--------+----------------------------------------------------+
     | name           | alias  | desc                                               |
     +----------------+--------+----------------------------------------------------+
