@@ -154,7 +154,7 @@ If you look at conflict's implementation, you see it's only about a dozen lines.
 Since vimdb stores vim items as array of hashes, you can use these within
 commands for whatever purpose.
 
-To illustrate creating a command, let's create a command that lists the first
+To illustrate creating a command, let's create one that lists the first
 given number of vim commands. In your ~/.vimdbrc:
 
 ```ruby
