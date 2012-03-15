@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 
+if RUBY_VERSION < '1.9.2'
+  abort "vimdb only runs on ruby >= 1.9.2. " +
+    "Use rbenv or rvm to install the latest 1.9 ruby."
+end
+
 require 'vimdb'
 Vimdb::Runner.start
