@@ -2,4 +2,5 @@ before_install: bundle init --gemspec=.gemspec
 rvm:
 - 1.9.2
 - 1.9.3
-- rbx-19mode
+# disabled until bahia + rbx issues worked out
+# - rbx-19mode
