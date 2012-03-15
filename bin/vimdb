@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
 
+Encoding.default_external = Encoding.find('ISO-8859-1') if RUBY_VERSION >= '1.9.0'
+
 require 'vimdb'
 Vimdb::Runner.start
