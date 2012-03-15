@@ -161,7 +161,7 @@ given number of vim commands. In your ~/.vimdbrc:
 class Vimdb::Runner
   desc "Prints first X options"
   def first(num)
-    # Set item type we're retrieveing
+    # Set item type we're retrieving
     Vimdb.item('options')
     puts Vimdb.user.items.first(num.to_i).map {|e| e[:name] }
   end
