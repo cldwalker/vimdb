@@ -61,11 +61,12 @@ module Vimdb
     private
 
     def vim(*cmds)
-      if RUBY_PLATFORM.downcase =~ /mswin(?!ce)|mingw|cygwin|bccwin/
-        system %[#{Vimdb.vim} -N -u NONE --cmd "colorscheme default | #{cmds.map{|x|x.gsub(/"/,'"""')}.join(' | ')} | qa"]
-      else
-        system %[#{Vimdb.vim} -N -u NONE --cmd 'colorscheme default | #{cmds.join(' | ')} | qa']
+      quote = "'"
+      if RUBY_PLATFORM =~ /mswin(?!ce)|mingw|cygwin|bccwin/i
+        cmds = cmds.map{|x| x.gsub(/"/,'"""') }
+        quote = '"'
       end
+      system %[#{Vimdb.vim} -N -u NONE --cmd #{quote}colorscheme default | #{cmds.join(' | ')} | qa#{quote}]
     end
 
     if ENV['VIMDB_FIXTURE_DIR']
