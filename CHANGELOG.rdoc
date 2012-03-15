@@ -1,3 +1,7 @@
+== 0.5.1
+* Add windows support
+* Explicit abort for < 1.9.2 ruby
+
 = 0.5.0
 * rename opts command to options
 * Upgrade boson to fix multi-word arg bug

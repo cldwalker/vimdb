@@ -237,6 +237,11 @@ Motivation
 
 Wanted to learn faster than :help would let me.
 
+Credits
+=======
+
+* mattn for windows support
+
 Contributing
 ============
 [See here](http://tagaholic.me/contributing.html)
