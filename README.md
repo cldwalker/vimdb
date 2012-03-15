@@ -2,11 +2,12 @@ Description
 ===========
 
 Increase the speed and amount of vim knowledge at your fingertips with precise
-searching of vim's items: keys (keybindings), options and commands. vimdb is
-aware of vim's default items, ones in your vimrc and ones in plugins. vimdb's
-plugin detection works only if you're using a pathogen-like setup i.e. each
-plugin has its own directory under ~/.vim/bundle/ (see Configuration below to
-change the directory). Tested with vim >= 7.2 on a mac. Works only on ruby 1.9.x.
+searching of vim's items: keys (keybindings), options and commands.
+[vimdb](http://github.com/cldwalker/vimdb) is aware of vim's default items, ones
+in your vimrc and ones in plugins. vimdb's plugin detection works only if you're
+using a pathogen-like setup i.e. each plugin has its own directory under
+~/.vim/bundle/ (see Configuration below to change the directory). Tested with
+vim >= 7.2 on mac and windows. Works only on ruby 1.9.x.
 
 Install
 =======
